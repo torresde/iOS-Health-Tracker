@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Welcome-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Health_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="SS8-eg-m8u">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hSh-RK-KQ4">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="497"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Weight Room" translatesAutoresizingMaskIntoConstraints="NO" id="hYN-c1-xhn" userLabel="Background Image">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="497"/>
+                                            </imageView>
+                                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xX0-1F-IQ3" userLabel="Red View">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="497"/>
+                                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6sE-9h-neq">
+                                                <rect key="frame" x="16" y="28" width="343" height="100"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="3bG-cF-LNh"/>
+                                                </constraints>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Health Tracker">
+                                                        <attributes>
+                                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <font key="NSFont" size="40" name="NewsGothicMT-Bold"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="xX0-1F-IQ3" firstAttribute="leading" secondItem="hSh-RK-KQ4" secondAttribute="leading" id="0q8-ms-fwN"/>
+                                            <constraint firstAttribute="trailing" secondItem="hYN-c1-xhn" secondAttribute="trailing" id="6Kb-dJ-Fbb"/>
+                                            <constraint firstItem="hYN-c1-xhn" firstAttribute="top" secondItem="hSh-RK-KQ4" secondAttribute="top" id="8mN-oh-bSX"/>
+                                            <constraint firstItem="xX0-1F-IQ3" firstAttribute="top" secondItem="hSh-RK-KQ4" secondAttribute="top" id="9NG-hx-ok3"/>
+                                            <constraint firstItem="6sE-9h-neq" firstAttribute="top" secondItem="hSh-RK-KQ4" secondAttribute="topMargin" id="RcM-ZR-z9B"/>
+                                            <constraint firstItem="6sE-9h-neq" firstAttribute="leading" secondItem="hSh-RK-KQ4" secondAttribute="leadingMargin" constant="8" id="TMX-6i-Mns"/>
+                                            <constraint firstAttribute="trailing" secondItem="xX0-1F-IQ3" secondAttribute="trailing" id="X44-kp-ueB"/>
+                                            <constraint firstAttribute="bottom" secondItem="xX0-1F-IQ3" secondAttribute="bottom" id="dt4-29-mfL"/>
+                                            <constraint firstAttribute="bottom" secondItem="hYN-c1-xhn" secondAttribute="bottom" id="hhc-6D-zTD"/>
+                                            <constraint firstItem="hYN-c1-xhn" firstAttribute="leading" secondItem="hSh-RK-KQ4" secondAttribute="leading" id="hrE-eo-VmT"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="6sE-9h-neq" secondAttribute="trailing" constant="8" id="t1k-po-dqG"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ok-vd-X8I">
+                                        <rect key="frame" x="0.0" y="497" width="375" height="85"/>
+                                        <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="85" id="bED-HK-dnf"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Track Workout">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAL-I4-hXq">
+                                        <rect key="frame" x="0.0" y="582" width="375" height="85"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="85" id="7Cc-f0-ieX"/>
+                                        </constraints>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Completed Workouts">
+                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="hSh-RK-KQ4" secondAttribute="trailing" id="6Dr-Uo-AkE"/>
+                                    <constraint firstItem="hSh-RK-KQ4" firstAttribute="top" secondItem="SS8-eg-m8u" secondAttribute="top" id="FIN-Yi-Byq"/>
+                                    <constraint firstItem="hSh-RK-KQ4" firstAttribute="leading" secondItem="SS8-eg-m8u" secondAttribute="leading" id="qnD-pt-13o"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="SS8-eg-m8u" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="02Y-qn-hri"/>
+                            <constraint firstItem="SS8-eg-m8u" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="7AI-fU-fUU"/>
+                            <constraint firstItem="SS8-eg-m8u" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="cDJ-Dr-he5"/>
+                            <constraint firstItem="SS8-eg-m8u" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rF0-dp-wMI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Welcome" id="zhA-NT-EiV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="125.59999999999999" y="31.934032983508249"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Weight Room" width="960" height="1206"/>
+    </resources>
+</document>
