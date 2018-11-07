@@ -14,7 +14,7 @@
         <!--Welcome-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Health_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="WelcomeViewController" customModule="Health_Tracker" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -41,7 +41,7 @@
                                                     <fragment content="Health Tracker">
                                                         <attributes>
                                                             <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <font key="NSFont" size="40" name="NewsGothicMT-Bold"/>
+                                                            <font key="NSFont" size="64" name="Futura-CondensedMedium"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
                                                     </fragment>
@@ -64,26 +64,43 @@
                                             <constraint firstAttribute="trailingMargin" secondItem="6sE-9h-neq" secondAttribute="trailing" constant="8" id="t1k-po-dqG"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ok-vd-X8I">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ok-vd-X8I">
                                         <rect key="frame" x="0.0" y="497" width="375" height="85"/>
                                         <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="85" id="bED-HK-dnf"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Track Workout">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Track Workout">
+                                                    <attributes>
+                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <font key="NSFont" size="36" name="Futura-CondensedMedium"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                         </state>
+                                        <connections>
+                                            <segue destination="Fnt-xi-2Ec" kind="show" animates="NO" id="d2W-gm-prA"/>
+                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAL-I4-hXq">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aAL-I4-hXq">
                                         <rect key="frame" x="0.0" y="582" width="375" height="85"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="85" id="7Cc-f0-ieX"/>
                                         </constraints>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Completed Workouts">
-                                            <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Completed Workouts">
+                                                    <attributes>
+                                                        <color key="NSColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <font key="NSFont" size="36" name="Futura-CondensedMedium"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                         </state>
                                     </button>
                                 </subviews>
@@ -108,6 +125,194 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="125.59999999999999" y="31.934032983508249"/>
+        </scene>
+        <!--Name View Controller-->
+        <scene sceneID="rbj-y1-sla">
+            <objects>
+                <viewController id="Fnt-xi-2Ec" customClass="NameViewController" customModule="Health_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rUv-Aq-czj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pWp-SW-TOi" userLabel="Header View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FbA-sc-9Vu">
+                                        <rect key="frame" x="103.5" y="31.5" width="168.5" height="43.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Workout Name">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="36" name="Futura-CondensedMedium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pZ9-mP-LFI">
+                                        <rect key="frame" x="10" y="35" width="44" height="38"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Back">
+                                                    <attributes>
+                                                        <font key="NSFont" size="20" name="Futura-Medium"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="Fnt-xi-2Ec" eventType="touchUpInside" id="ew5-00-25A"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fKM-dS-z6k">
+                                        <rect key="frame" x="320" y="37" width="45" height="38"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Next">
+                                                    <attributes>
+                                                        <font key="NSFont" size="20" name="Futura-Medium"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="nextButtonPressed:" destination="Fnt-xi-2Ec" eventType="touchUpInside" id="lhi-jU-iQS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="fKM-dS-z6k" secondAttribute="trailing" constant="10" id="4Ev-y9-ayU"/>
+                                    <constraint firstAttribute="bottom" secondItem="fKM-dS-z6k" secondAttribute="bottom" id="8KN-Rh-rYM"/>
+                                    <constraint firstAttribute="bottom" secondItem="pZ9-mP-LFI" secondAttribute="bottom" constant="2" id="NhK-qg-bOK"/>
+                                    <constraint firstAttribute="height" constant="75" id="Nm7-bn-Ddp"/>
+                                    <constraint firstAttribute="bottom" secondItem="FbA-sc-9Vu" secondAttribute="bottom" id="P8y-9d-OhR"/>
+                                    <constraint firstItem="pZ9-mP-LFI" firstAttribute="leading" secondItem="pWp-SW-TOi" secondAttribute="leading" constant="10" id="gNQ-jX-jVt"/>
+                                    <constraint firstItem="FbA-sc-9Vu" firstAttribute="centerX" secondItem="pWp-SW-TOi" secondAttribute="centerX" id="iVR-Qr-flq"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jFu-gy-fmh">
+                                <rect key="frame" x="20" y="85" width="355" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fE3-Oe-DTV">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="bHm-Cl-HNI"/>
+                                        </constraints>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Choose name:">
+                                                <attributes>
+                                                    <font key="NSFont" size="18" name="Futura-Medium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Enter workout name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HYN-Mu-90O">
+                                        <rect key="frame" x="0.0" y="30" width="355" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="CAI-pC-ngg"/>
+                                        </constraints>
+                                        <attributedString key="attributedText"/>
+                                        <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Fnt-xi-2Ec" id="Cmv-MS-b1E"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="jFu-gy-fmh" firstAttribute="top" secondItem="pWp-SW-TOi" secondAttribute="bottom" constant="10" id="DXa-KW-fEJ"/>
+                            <constraint firstItem="oNk-98-PB8" firstAttribute="trailing" secondItem="pWp-SW-TOi" secondAttribute="trailing" id="Ozc-Z6-vBA"/>
+                            <constraint firstItem="pWp-SW-TOi" firstAttribute="leading" secondItem="oNk-98-PB8" secondAttribute="leading" id="SBl-BU-PuC"/>
+                            <constraint firstItem="pWp-SW-TOi" firstAttribute="top" secondItem="rUv-Aq-czj" secondAttribute="top" id="WcZ-1S-OhN"/>
+                            <constraint firstItem="jFu-gy-fmh" firstAttribute="leading" secondItem="oNk-98-PB8" secondAttribute="leading" constant="20" id="bvW-Am-ICK"/>
+                            <constraint firstItem="oNk-98-PB8" firstAttribute="trailing" secondItem="jFu-gy-fmh" secondAttribute="trailing" id="zRz-ZS-8Eo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oNk-98-PB8"/>
+                    </view>
+                    <connections>
+                        <outlet property="enterNameTextField" destination="HYN-Mu-90O" id="PVp-Ru-OBJ"/>
+                        <segue destination="AuP-mW-LHP" kind="show" identifier="sendNameForward" animates="NO" id="lvc-Lh-vQG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z69-aD-tP6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1024.8" y="31.934032983508249"/>
+        </scene>
+        <!--Workout View Controller-->
+        <scene sceneID="Fih-7v-qCl">
+            <objects>
+                <viewController id="AuP-mW-LHP" customClass="WorkoutViewController" customModule="Health_Tracker" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Qci-IM-0c0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4w-JC-fsE" userLabel="Header View">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scF-3R-RSh">
+                                        <rect key="frame" x="122" y="31.5" width="132" height="43.5"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Placeholder">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <font key="NSFont" size="36" name="Futura-CondensedMedium"/>
+                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbg-aX-EzF" userLabel="Finish">
+                                        <rect key="frame" x="314" y="37" width="51" height="38"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Finish">
+                                                    <attributes>
+                                                        <font key="NSFont" size="20" name="Futura-Medium"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="y6y-9A-oVH"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="scF-3R-RSh" secondAttribute="bottom" id="Rk8-8m-Z3x"/>
+                                    <constraint firstItem="scF-3R-RSh" firstAttribute="centerX" secondItem="q4w-JC-fsE" secondAttribute="centerX" id="Zd7-jf-JR9"/>
+                                    <constraint firstAttribute="trailing" secondItem="hbg-aX-EzF" secondAttribute="trailing" constant="10" id="cKL-Fb-CLW"/>
+                                    <constraint firstAttribute="height" constant="75" id="n2R-Pd-t0k"/>
+                                    <constraint firstAttribute="bottom" secondItem="hbg-aX-EzF" secondAttribute="bottom" id="n5z-Uz-jfM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="q4w-JC-fsE" firstAttribute="leading" secondItem="Fuq-yn-68S" secondAttribute="leading" id="JqE-AK-Qpk"/>
+                            <constraint firstItem="q4w-JC-fsE" firstAttribute="top" secondItem="Qci-IM-0c0" secondAttribute="top" id="KD7-bf-1Pl"/>
+                            <constraint firstAttribute="trailing" secondItem="q4w-JC-fsE" secondAttribute="trailing" id="m4m-aW-q5x"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Fuq-yn-68S"/>
+                    </view>
+                    <connections>
+                        <outlet property="workoutNameLabel" destination="scF-3R-RSh" id="Mh0-Vv-R0v"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TXW-CL-NRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1921" y="32"/>
         </scene>
     </scenes>
     <resources>

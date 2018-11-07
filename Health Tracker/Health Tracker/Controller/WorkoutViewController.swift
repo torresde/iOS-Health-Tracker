@@ -1,18 +1,22 @@
 //
-//  ViewController.swift
+//  WorkoutViewController.swift
 //  Health Tracker
 //
-//  Created by David Torres on 11/5/18.
+//  Created by David Torres on 11/6/18.
 //  Copyright © 2018 CS4278FinalProject. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
+class WorkoutViewController: UIViewController {
+
+    @IBOutlet weak var workoutNameLabel: UILabel!
+    var workoutName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+
+        workoutNameLabel.text = workoutName
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,6 +27,5 @@ class ViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
-
+    
 }
-
