@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NameViewController: UIViewController, UITextFieldDelegate {
+class SetNameViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var enterNameTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
@@ -16,6 +16,7 @@ class NameViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        enterNameTextField.delegate = self
         nextButton.isUserInteractionEnabled = false
         nextButton.alpha = 0.5
     }
@@ -30,10 +31,6 @@ class NameViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func nextButtonPressed(_ sender: Any) {
-        if enterNameTextField.text == "" {
-            return
-        }
-        
         performSegue(withIdentifier: "sendNameForward", sender: self)
     }
     
@@ -53,7 +50,7 @@ class NameViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        enterNameTextField.resignFirstResponder()
+        textField.resignFirstResponder()
         return true
     }
     
