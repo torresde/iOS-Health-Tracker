@@ -324,10 +324,37 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mzx-XK-fUY">
-                                <rect key="frame" x="0.0" y="85" width="375" height="80"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="120"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTI-sG-scs">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Cs-LQ-vj9" userLabel="Exercise label">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5J3-fl-viD">
+                                                <rect key="frame" x="15" y="5" width="360" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="wE1-rq-oI5"/>
+                                                </constraints>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Exercise log:">
+                                                        <attributes>
+                                                            <font key="NSFont" size="18" name="Futura-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="5J3-fl-viD" firstAttribute="centerY" secondItem="4Cs-LQ-vj9" secondAttribute="centerY" id="1kD-f4-1ZY"/>
+                                            <constraint firstAttribute="trailing" secondItem="5J3-fl-viD" secondAttribute="trailing" id="7NK-yY-HTr"/>
+                                            <constraint firstItem="5J3-fl-viD" firstAttribute="leading" secondItem="4Cs-LQ-vj9" secondAttribute="leading" constant="15" id="8xY-Af-KDc"/>
+                                            <constraint firstAttribute="height" constant="40" id="wUH-Ke-Tez"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTI-sG-scs" userLabel="Edit name label">
+                                        <rect key="frame" x="0.0" y="40" width="375" height="40"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Stc-4l-JmL">
                                                 <rect key="frame" x="15" y="5" width="360" height="30"/>
@@ -353,8 +380,8 @@
                                             <constraint firstItem="Stc-4l-JmL" firstAttribute="leading" secondItem="cTI-sG-scs" secondAttribute="leading" constant="15" id="gmT-Cj-oi1"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dp-ac-3c1">
-                                        <rect key="frame" x="0.0" y="40" width="375" height="40"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dp-ac-3c1" userLabel="Edit name text field">
+                                        <rect key="frame" x="0.0" y="80" width="375" height="40"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Enter workout name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wnY-rE-zVk">
                                                 <rect key="frame" x="15" y="0.0" width="345" height="40"/>
@@ -382,11 +409,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Mzx-XK-fUY" firstAttribute="trailing" secondItem="Fuq-yn-68S" secondAttribute="trailing" id="H13-UQ-YsN"/>
+                            <constraint firstItem="Mzx-XK-fUY" firstAttribute="top" secondItem="q4w-JC-fsE" secondAttribute="bottom" id="5vO-cm-X9U"/>
                             <constraint firstItem="q4w-JC-fsE" firstAttribute="leading" secondItem="Fuq-yn-68S" secondAttribute="leading" id="JqE-AK-Qpk"/>
                             <constraint firstItem="q4w-JC-fsE" firstAttribute="top" secondItem="Qci-IM-0c0" secondAttribute="top" id="KD7-bf-1Pl"/>
-                            <constraint firstItem="Mzx-XK-fUY" firstAttribute="leading" secondItem="Fuq-yn-68S" secondAttribute="leading" id="Tma-m1-i4h"/>
-                            <constraint firstItem="Mzx-XK-fUY" firstAttribute="top" secondItem="q4w-JC-fsE" secondAttribute="bottom" constant="10" id="d5o-ZE-oVv"/>
+                            <constraint firstItem="Mzx-XK-fUY" firstAttribute="leading" secondItem="Fuq-yn-68S" secondAttribute="leading" id="KRK-5h-ldV"/>
+                            <constraint firstItem="Mzx-XK-fUY" firstAttribute="trailing" secondItem="Fuq-yn-68S" secondAttribute="trailing" id="N3V-M2-g7b"/>
                             <constraint firstAttribute="trailing" secondItem="q4w-JC-fsE" secondAttribute="trailing" id="m4m-aW-q5x"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fuq-yn-68S"/>
