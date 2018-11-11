@@ -20,11 +20,6 @@ class SetNameViewController: UIViewController, UITextFieldDelegate {
         nextButton.isUserInteractionEnabled = false
         nextButton.alpha = 0.5
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func backButtonPressed(_ sender: Any) {
         dismiss(animated: false, completion: nil)
