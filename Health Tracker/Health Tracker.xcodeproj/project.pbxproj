@@ -15,6 +15,8 @@
 		6AF844B021924EB9004B2D5B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6AF844AF21924EB9004B2D5B /* Default-568h@2x.png */; };
 		6AF844B421927AA1004B2D5B /* SetNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF844B321927AA1004B2D5B /* SetNameViewController.swift */; };
 		6AF844B62192B5DB004B2D5B /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF844B52192B5DB004B2D5B /* WorkoutViewController.swift */; };
+		B059E4D821AB68C000D74F0A /* SetExerciseName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B059E4D721AB68C000D74F0A /* SetExerciseName.swift */; };
+		B059E4DA21ADB71800D74F0A /* SetRepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B059E4D921ADB71800D74F0A /* SetRepsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		6AF844AF21924EB9004B2D5B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6AF844B321927AA1004B2D5B /* SetNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNameViewController.swift; sourceTree = "<group>"; };
 		6AF844B52192B5DB004B2D5B /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
+		B059E4D721AB68C000D74F0A /* SetExerciseName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetExerciseName.swift; sourceTree = "<group>"; };
+		B059E4D921ADB71800D74F0A /* SetRepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRepsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 			children = (
 				6AF8449B2191159A004B2D5B /* AppDelegate.swift */,
 				6AF8449D2191159A004B2D5B /* WelcomeViewController.swift */,
+				B059E4D921ADB71800D74F0A /* SetRepsViewController.swift */,
+				B059E4D721AB68C000D74F0A /* SetExerciseName.swift */,
 				6AF844B321927AA1004B2D5B /* SetNameViewController.swift */,
 				6AF844B52192B5DB004B2D5B /* WorkoutViewController.swift */,
 			);
@@ -169,8 +175,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B059E4D821AB68C000D74F0A /* SetExerciseName.swift in Sources */,
 				6AF844B62192B5DB004B2D5B /* WorkoutViewController.swift in Sources */,
 				6AF8449E2191159A004B2D5B /* WelcomeViewController.swift in Sources */,
+				B059E4DA21ADB71800D74F0A /* SetRepsViewController.swift in Sources */,
 				6AF8449C2191159A004B2D5B /* AppDelegate.swift in Sources */,
 				6AF844B421927AA1004B2D5B /* SetNameViewController.swift in Sources */,
 			);
