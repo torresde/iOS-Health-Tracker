@@ -111,7 +111,10 @@ extension SetRepsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
+            context.delete(setsArray[indexPath.row])
             setsArray.remove(at: indexPath.row)
+            
+            saveSets()
             
             setRepsTableView.beginUpdates()
             setRepsTableView.deleteRows(at: [indexPath], with: .automatic)
