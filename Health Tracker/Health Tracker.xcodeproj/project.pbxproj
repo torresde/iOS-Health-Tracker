@@ -19,6 +19,14 @@
 		6AF844BD21940548004B2D5B /* ExerciseLogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AF844BB21940548004B2D5B /* ExerciseLogTableViewCell.xib */; };
 		6AF844E821AFAA25004B2D5B /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6AF844E621AFAA25004B2D5B /* DataModel.xcdatamodeld */; };
 		B06FAAE821AF522300009996 /* SetRepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06FAAE721AF522300009996 /* SetRepsViewController.swift */; };
+		B06FAB1221AFBD7700009996 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06FAB1121AFBD7700009996 /* PersistenceService.swift */; };
+		B06FAB1921AFC20600009996 /* Exercise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06FAB1321AFC20600009996 /* Exercise+CoreDataClass.swift */; };
+		B06FAB1A21AFC20600009996 /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06FAB1421AFC20600009996 /* Exercise+CoreDataProperties.swift */; };
+		B06FAB1B21AFC20600009996 /* Set+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06FAB1521AFC20600009996 /* Set+CoreDataClass.swift */; };
+		B06FAB1C21AFC20600009996 /* Set+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06FAB1621AFC20600009996 /* Set+CoreDataProperties.swift */; };
+		B06FAB1D21AFC20600009996 /* Workout+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06FAB1721AFC20600009996 /* Workout+CoreDataClass.swift */; };
+		B06FAB1E21AFC20600009996 /* Workout+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06FAB1821AFC20600009996 /* Workout+CoreDataProperties.swift */; };
+		B06FAB2021AFCA3400009996 /* CompletedWorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06FAB1F21AFCA3400009996 /* CompletedWorkoutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +44,14 @@
 		6AF844BB21940548004B2D5B /* ExerciseLogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseLogTableViewCell.xib; sourceTree = "<group>"; };
 		6AF844E721AFAA25004B2D5B /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		B06FAAE721AF522300009996 /* SetRepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRepsViewController.swift; sourceTree = "<group>"; };
+		B06FAB1121AFBD7700009996 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		B06FAB1321AFC20600009996 /* Exercise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B06FAB1421AFC20600009996 /* Exercise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B06FAB1521AFC20600009996 /* Set+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B06FAB1621AFC20600009996 /* Set+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Set+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B06FAB1721AFC20600009996 /* Workout+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B06FAB1821AFC20600009996 /* Workout+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Workout+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B06FAB1F21AFCA3400009996 /* CompletedWorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CompletedWorkoutViewController.swift; path = "Health Tracker/Controller/CompletedWorkoutViewController.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +86,12 @@
 			isa = PBXGroup;
 			children = (
 				6AF844A72191159C004B2D5B /* Info.plist */,
+				B06FAB1321AFC20600009996 /* Exercise+CoreDataClass.swift */,
+				B06FAB1421AFC20600009996 /* Exercise+CoreDataProperties.swift */,
+				B06FAB1521AFC20600009996 /* Set+CoreDataClass.swift */,
+				B06FAB1621AFC20600009996 /* Set+CoreDataProperties.swift */,
+				B06FAB1721AFC20600009996 /* Workout+CoreDataClass.swift */,
+				B06FAB1821AFC20600009996 /* Workout+CoreDataProperties.swift */,
 				6AF844B121924EC0004B2D5B /* Model */,
 				6AF844AE21924E9A004B2D5B /* Controller */,
 				6AF844B221924EDA004B2D5B /* View */,
@@ -82,10 +104,12 @@
 			isa = PBXGroup;
 			children = (
 				6AF8449B2191159A004B2D5B /* AppDelegate.swift */,
+				B06FAB1121AFBD7700009996 /* PersistenceService.swift */,
 				B06FAAE721AF522300009996 /* SetRepsViewController.swift */,
 				6AF8449D2191159A004B2D5B /* WelcomeViewController.swift */,
 				6AF844B321927AA1004B2D5B /* SetNameViewController.swift */,
 				6AF844B52192B5DB004B2D5B /* WorkoutViewController.swift */,
+				B06FAB1F21AFCA3400009996 /* CompletedWorkoutViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -190,11 +214,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B06FAB2021AFCA3400009996 /* CompletedWorkoutViewController.swift in Sources */,
+				B06FAB1B21AFC20600009996 /* Set+CoreDataClass.swift in Sources */,
 				6AF844B62192B5DB004B2D5B /* WorkoutViewController.swift in Sources */,
+				B06FAB1C21AFC20600009996 /* Set+CoreDataProperties.swift in Sources */,
+				B06FAB1221AFBD7700009996 /* PersistenceService.swift in Sources */,
+				B06FAB1E21AFC20600009996 /* Workout+CoreDataProperties.swift in Sources */,
 				6AF8449E2191159A004B2D5B /* WelcomeViewController.swift in Sources */,
+				B06FAB1D21AFC20600009996 /* Workout+CoreDataClass.swift in Sources */,
 				6AF8449C2191159A004B2D5B /* AppDelegate.swift in Sources */,
 				6AF844E821AFAA25004B2D5B /* DataModel.xcdatamodeld in Sources */,
+				B06FAB1921AFC20600009996 /* Exercise+CoreDataClass.swift in Sources */,
 				B06FAAE821AF522300009996 /* SetRepsViewController.swift in Sources */,
+				B06FAB1A21AFC20600009996 /* Exercise+CoreDataProperties.swift in Sources */,
 				6AF844B421927AA1004B2D5B /* SetNameViewController.swift in Sources */,
 				6AF844BC21940548004B2D5B /* ExerciseLogTableViewCell.swift in Sources */,
 			);

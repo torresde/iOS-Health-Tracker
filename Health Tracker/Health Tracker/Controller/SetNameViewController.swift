@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import CoreData
+
+struct GlobalVariables {
+    static var workouts = [Workout]()
+}
 
 class SetNameViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var enterNameTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
+    
+    var arr = GlobalVariables.workouts
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +33,11 @@ class SetNameViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func nextButtonPressed(_ sender: Any) {
+        
+        let workout = Workout(context: PersistenceServce.context)
+        workout.name = enterNameTextField.text!
+        PersistenceServce.saveContext()
+        arr.append(workout)
         performSegue(withIdentifier: "sendNameForward", sender: self)
     }
     
