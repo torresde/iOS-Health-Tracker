@@ -17,6 +17,7 @@
 		6AF844B62192B5DB004B2D5B /* WorkoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF844B52192B5DB004B2D5B /* WorkoutViewController.swift */; };
 		6AF844BC21940548004B2D5B /* ExerciseLogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF844BA21940548004B2D5B /* ExerciseLogTableViewCell.swift */; };
 		6AF844BD21940548004B2D5B /* ExerciseLogTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AF844BB21940548004B2D5B /* ExerciseLogTableViewCell.xib */; };
+		B06FAAE821AF522300009996 /* SetRepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06FAAE721AF522300009996 /* SetRepsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		6AF844B52192B5DB004B2D5B /* WorkoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewController.swift; sourceTree = "<group>"; };
 		6AF844BA21940548004B2D5B /* ExerciseLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseLogTableViewCell.swift; sourceTree = "<group>"; };
 		6AF844BB21940548004B2D5B /* ExerciseLogTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseLogTableViewCell.xib; sourceTree = "<group>"; };
+		B06FAAE721AF522300009996 /* SetRepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRepsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 			isa = PBXGroup;
 			children = (
 				6AF8449B2191159A004B2D5B /* AppDelegate.swift */,
+				B06FAAE721AF522300009996 /* SetRepsViewController.swift */,
 				6AF8449D2191159A004B2D5B /* WelcomeViewController.swift */,
 				6AF844B321927AA1004B2D5B /* SetNameViewController.swift */,
 				6AF844B52192B5DB004B2D5B /* WorkoutViewController.swift */,
@@ -187,6 +190,7 @@
 				6AF844B62192B5DB004B2D5B /* WorkoutViewController.swift in Sources */,
 				6AF8449E2191159A004B2D5B /* WelcomeViewController.swift in Sources */,
 				6AF8449C2191159A004B2D5B /* AppDelegate.swift in Sources */,
+				B06FAAE821AF522300009996 /* SetRepsViewController.swift in Sources */,
 				6AF844B421927AA1004B2D5B /* SetNameViewController.swift in Sources */,
 				6AF844BC21940548004B2D5B /* ExerciseLogTableViewCell.swift in Sources */,
 			);

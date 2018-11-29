@@ -17,8 +17,11 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var addExerciseTextField: UITextField!
     
     var workoutName = ""
+    var exerciseName = ""
     var titleArray: [String] = ["Bench Press", "Squat", "Deadlift"]
     var subtitleArray: [String] = ["3 sets", "4 sets", "2 sets"]
+    
+    var myIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +38,12 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addExerciseButtonTapped(_ sender: UIButton) {
         insertNewExercise()
     }
+    
+    
+    @IBAction func finishButtonPressed(_ sender: UIButton) {
+        
+    }
+    
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
@@ -60,6 +69,13 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
 
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "setRepsSegue" {
+            let setReps = segue.destination as! SetRepsViewController
+            setReps.exerciseNameText = exerciseName
+        }
     }
     
 }
@@ -105,6 +121,13 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
             exerciseLogTableView.deleteRows(at: [indexPath], with: .automatic)
             exerciseLogTableView.endUpdates()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        myIndex = indexPath.row
+        exerciseName = titleArray[myIndex]
+        performSegue(withIdentifier: "setRepsSegue", sender: self)
+        
     }
     
 }
