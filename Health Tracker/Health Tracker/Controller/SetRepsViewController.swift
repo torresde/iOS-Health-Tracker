@@ -49,9 +49,9 @@ class SetRepsViewController: UIViewController {
     func loadSets() {
         let request : NSFetchRequest<Set> = Set.fetchRequest()
         
-//        let predicate = NSPredicate(format: "parentExercise.name MATCHES %@", selectedExercise!.exerciseName!)
-//
-//        request.predicate = predicate
+        let predicate = NSPredicate(format: "parentExercise.exerciseName MATCHES %@", selectedExercise!.exerciseName!)
+
+        request.predicate = predicate
         do {
             setsArray = try context.fetch(request)
         } catch {
@@ -72,6 +72,7 @@ class SetRepsViewController: UIViewController {
         let newSet = Set(context: context)
         newSet.reps = repsField.text!
         newSet.weight = weightField.text!
+        newSet.parentExercise = selectedExercise
         setsArray.append(newSet)
         let indexPath = IndexPath(row: setsArray.count - 1, section: 0)
         

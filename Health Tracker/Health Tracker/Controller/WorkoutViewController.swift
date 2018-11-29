@@ -112,9 +112,9 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     func loadExercises() {
         let request : NSFetchRequest<Exercise> = Exercise.fetchRequest()
         
-//        let predicate = NSPredicate(format: "parentWorkout.'name' MATCHES %@", selectedWorkout!.workoutName!)
-//
-//        request.predicate = predicate
+        let predicate = NSPredicate(format: "parentWorkout.workoutName MATCHES %@", selectedWorkout!.workoutName!)
+
+        request.predicate = predicate
         do {
             exerciseArray = try context.fetch(request)
         } catch {
