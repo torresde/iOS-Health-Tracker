@@ -13,7 +13,6 @@ class SetRepsViewController: UIViewController {
     
     var sets: [String] = []
     @IBOutlet var exerciseName: UILabel!
-    @IBOutlet var finishButton: UIButton!
     @IBOutlet var setRepsTableView: UITableView!
     @IBOutlet var repsField: UITextField!
     @IBOutlet var weightField: UITextField!
@@ -31,8 +30,8 @@ class SetRepsViewController: UIViewController {
         setRepsTableView.tableFooterView = UIView(frame: CGRect.zero)
     }
     
-    @IBAction func finishButtonPressed(_ sender: Any) {
-        performSegue(withIdentifier: "finishExerciseSegue", sender: self)
+    @IBAction func BackButtonPressed(_ sender: Any) {
+        dismiss(animated: false, completion: nil)
     }
     
     @IBAction func addSetPressed(_ sender: Any) {

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -491,7 +492,7 @@
                         <outlet property="exerciseLogTableView" destination="sWj-HA-xma" id="fCd-Nc-lSc"/>
                         <outlet property="finishButton" destination="hbg-aX-EzF" id="tJv-kQ-dfq"/>
                         <outlet property="workoutNameLabel" destination="scF-3R-RSh" id="Mh0-Vv-R0v"/>
-                        <segue destination="FRT-lO-qk9" kind="show" identifier="setRepsSegue" id="b7y-eG-gnO"/>
+                        <segue destination="FRT-lO-qk9" kind="show" identifier="setRepsSegue" animates="NO" id="b7y-eG-gnO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXW-CL-NRB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -509,22 +510,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9EL-YD-t2q" userLabel="Header View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kdo-X7-5Bs" userLabel="Finish">
-                                        <rect key="frame" x="314" y="37" width="51" height="38"/>
-                                        <state key="normal">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="Finish">
-                                                    <attributes>
-                                                        <font key="NSFont" size="20" name="Futura-Medium"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </state>
-                                        <connections>
-                                            <action selector="finishButtonPressed:" destination="FRT-lO-qk9" eventType="touchUpInside" id="eR8-fu-o46"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOM-FX-zR2">
                                         <rect key="frame" x="122" y="32" width="140" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -539,15 +524,30 @@
                                         </attributedString>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kdo-X7-5Bs">
+                                        <rect key="frame" x="8" y="35" width="44" height="38"/>
+                                        <state key="normal">
+                                            <attributedString key="attributedTitle">
+                                                <fragment content="Back">
+                                                    <attributes>
+                                                        <font key="NSFont" size="20" name="Futura-Medium"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                        </state>
+                                        <connections>
+                                            <action selector="BackButtonPressed:" destination="FRT-lO-qk9" eventType="touchUpInside" id="mL1-Vj-VZ1"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="kdo-X7-5Bs" secondAttribute="bottom" constant="2" id="2SH-U4-S7F"/>
+                                    <constraint firstItem="kdo-X7-5Bs" firstAttribute="leading" secondItem="9EL-YD-t2q" secondAttribute="leading" constant="8" id="7K0-o2-TU1"/>
                                     <constraint firstAttribute="width" constant="375" id="DBN-fW-nzD"/>
-                                    <constraint firstItem="kdo-X7-5Bs" firstAttribute="top" secondItem="9EL-YD-t2q" secondAttribute="top" constant="37" id="XbX-Kw-vhk"/>
-                                    <constraint firstAttribute="bottom" secondItem="kdo-X7-5Bs" secondAttribute="bottom" id="b13-eA-u3n"/>
                                     <constraint firstAttribute="height" constant="75" id="bJs-Kf-cZg"/>
-                                    <constraint firstAttribute="trailing" secondItem="kdo-X7-5Bs" secondAttribute="trailing" constant="10" id="hdG-52-Sf9"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="650-cU-2h7">
@@ -577,13 +577,6 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Set:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mLc-gZ-cgd">
                                 <rect key="frame" x="58" y="413" width="32" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmq-hX-rYd">
-                                <rect key="frame" x="58" y="507" width="43" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -652,7 +645,6 @@
                     <connections>
                         <outlet property="addSetButton" destination="w1B-Pl-mHP" id="Gbw-gX-8kB"/>
                         <outlet property="exerciseName" destination="dOM-FX-zR2" id="hb5-Iu-FPg"/>
-                        <outlet property="finishButton" destination="kdo-X7-5Bs" id="Wl8-Do-2Db"/>
                         <outlet property="repsField" destination="hBp-i2-fMi" id="ehv-7s-4Ix"/>
                         <outlet property="setRepsTableView" destination="eWO-El-97W" id="VG6-x1-j5X"/>
                         <outlet property="weightField" destination="650-cU-2h7" id="C4f-M9-xdf"/>
@@ -668,6 +660,6 @@
         <image name="Weight Room" width="960" height="1206"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="3GZ-QP-M1o"/>
+        <segue reference="lvc-Lh-vQG"/>
     </inferredMetricsTieBreakers>
 </document>
