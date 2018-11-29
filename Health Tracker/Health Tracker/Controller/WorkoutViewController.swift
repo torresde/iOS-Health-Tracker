@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class WorkoutViewController: UIViewController, UITextFieldDelegate {
 
@@ -16,12 +17,19 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var exerciseLogTableView: UITableView!
     @IBOutlet weak var addExerciseTextField: UITextField!
     
+    
     var workoutName = ""
-    var exerciseName = ""
-    var titleArray: [String] = ["Bench Press", "Squat", "Deadlift"]
-    var subtitleArray: [String] = ["3 sets", "4 sets", "2 sets"]
+    var selectedWorkout : Workout? {
+        didSet{
+            workoutName = selectedWorkout!.workoutName!
+            loadExercises()
+        }
+    }
     
     var myIndex = 0
+    
+    var exerciseArray = [Exercise]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,8 +81,10 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "setRepsSegue" {
-            let setReps = segue.destination as! SetRepsViewController
-            setReps.exerciseNameText = exerciseName
+            let destinationVC = segue.destination as! SetRepsViewController
+            if let indexPath = exerciseLogTableView.indexPathForSelectedRow {
+                destinationVC.selectedExercise = exerciseArray[indexPath.row]
+            }
         }
     }
     
@@ -82,9 +92,39 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
 
 extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func saveExercises() {
+        
+        do {
+           try context.save()
+        } catch {
+            print("Error saving exercise \(error)")
+        }
+        
+    }
+    
+    func loadExercises() {
+        let request : NSFetchRequest<Exercise> = Exercise.fetchRequest()
+        
+        let predicate = NSPredicate(format: "parentWorkout.name MATCHES %@", selectedWorkout!.workoutName!)
+        
+        request.predicate = predicate
+        do {
+            exerciseArray = try context.fetch(request)
+        } catch {
+            print("Error loading exercises \(error)")
+        }
+        
+        exerciseLogTableView.reloadData()
+    }
+    
     func insertNewExercise() {
-        titleArray.append(addExerciseTextField.text!)
-        let indexPath = IndexPath(row: titleArray.count - 1, section: 0)
+        let newExercise = Exercise(context: context)
+        newExercise.exerciseName = addExerciseTextField.text!
+        newExercise.parentWorkout = selectedWorkout
+        exerciseArray.append(newExercise)
+        let indexPath = IndexPath(row: exerciseArray.count - 1, section: 0)
+        
+        saveExercises()
         
         exerciseLogTableView.beginUpdates()
         exerciseLogTableView.insertRows(at: [indexPath], with: .automatic)
@@ -98,14 +138,14 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseLogTableViewCell", for: indexPath) as! ExerciseLogTableViewCell
         
-        cell.exerciseNameLabel.text = titleArray[indexPath.row]
+        cell.exerciseNameLabel.text = exerciseArray[indexPath.row].exerciseName
         cell.exerciseSetsLabel.text = "2 sets"
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titleArray.count
+        return exerciseArray.count
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -115,7 +155,7 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            titleArray.remove(at: indexPath.row)
+            exerciseArray.remove(at: indexPath.row)
             
             exerciseLogTableView.beginUpdates()
             exerciseLogTableView.deleteRows(at: [indexPath], with: .automatic)
@@ -124,10 +164,7 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        myIndex = indexPath.row
-        exerciseName = titleArray[myIndex]
         performSegue(withIdentifier: "setRepsSegue", sender: self)
-        
     }
     
 }

@@ -284,7 +284,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scF-3R-RSh">
-                                        <rect key="frame" x="121.5" y="31.5" width="132" height="43.5"/>
+                                        <rect key="frame" x="121.5" y="29.5" width="132" height="43.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Placeholder">
                                                 <attributes>
@@ -317,26 +317,26 @@
                                 <color key="backgroundColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="scF-3R-RSh" secondAttribute="bottom" id="Rk8-8m-Z3x"/>
                                     <constraint firstItem="scF-3R-RSh" firstAttribute="centerX" secondItem="q4w-JC-fsE" secondAttribute="centerX" id="Zd7-jf-JR9"/>
                                     <constraint firstAttribute="trailing" secondItem="hbg-aX-EzF" secondAttribute="trailing" constant="10" id="cKL-Fb-CLW"/>
+                                    <constraint firstAttribute="bottom" secondItem="scF-3R-RSh" secondAttribute="bottom" constant="2" id="fKF-my-3ad"/>
                                     <constraint firstAttribute="height" constant="75" id="n2R-Pd-t0k"/>
                                     <constraint firstAttribute="bottom" secondItem="hbg-aX-EzF" secondAttribute="bottom" id="n5z-Uz-jfM"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mzx-XK-fUY">
-                                <rect key="frame" x="0.0" y="75" width="375" height="460"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mzx-XK-fUY">
+                                <rect key="frame" x="0.0" y="75" width="375" height="200"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Cs-LQ-vj9" userLabel="Exercise log label">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTI-sG-scs" userLabel="Edit name label">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5J3-fl-viD">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Stc-4l-JmL">
                                                 <rect key="frame" x="15" y="5" width="360" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="wE1-rq-oI5"/>
+                                                    <constraint firstAttribute="height" constant="30" id="9tf-eD-Kds"/>
                                                 </constraints>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="Exercise log:">
+                                                    <fragment content="Edit name:">
                                                         <attributes>
                                                             <font key="NSFont" size="18" name="Futura-Medium"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -348,26 +348,70 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="5J3-fl-viD" firstAttribute="centerY" secondItem="4Cs-LQ-vj9" secondAttribute="centerY" id="1kD-f4-1ZY"/>
-                                            <constraint firstAttribute="trailing" secondItem="5J3-fl-viD" secondAttribute="trailing" id="7NK-yY-HTr"/>
-                                            <constraint firstItem="5J3-fl-viD" firstAttribute="leading" secondItem="4Cs-LQ-vj9" secondAttribute="leading" constant="15" id="8xY-Af-KDc"/>
-                                            <constraint firstAttribute="height" constant="40" id="wUH-Ke-Tez"/>
+                                            <constraint firstAttribute="trailing" secondItem="Stc-4l-JmL" secondAttribute="trailing" id="Ict-iE-6nC"/>
+                                            <constraint firstItem="Stc-4l-JmL" firstAttribute="centerY" secondItem="cTI-sG-scs" secondAttribute="centerY" id="K41-ba-YwW"/>
+                                            <constraint firstAttribute="height" constant="40" id="Tq3-ra-pf6"/>
+                                            <constraint firstItem="Stc-4l-JmL" firstAttribute="leading" secondItem="cTI-sG-scs" secondAttribute="leading" constant="15" id="gmT-Cj-oi1"/>
                                         </constraints>
                                     </view>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sWj-HA-xma" userLabel="Exercise log table">
-                                        <rect key="frame" x="0.0" y="40" width="375" height="300"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dp-ac-3c1" userLabel="Edit name text field">
+                                        <rect key="frame" x="0.0" y="40" width="375" height="40"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Enter workout name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wnY-rE-zVk">
+                                                <rect key="frame" x="15" y="0.0" width="345" height="40"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="RcX-OS-syH"/>
+                                                </constraints>
+                                                <attributedString key="attributedText"/>
+                                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="Fnt-xi-2Ec" id="bUl-h3-6NU"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="300" id="K7w-aV-yX2"/>
+                                            <constraint firstItem="wnY-rE-zVk" firstAttribute="centerY" secondItem="5dp-ac-3c1" secondAttribute="centerY" id="5sv-ro-bC8"/>
+                                            <constraint firstItem="wnY-rE-zVk" firstAttribute="leading" secondItem="5dp-ac-3c1" secondAttribute="leading" constant="15" id="JWL-EB-jQE"/>
+                                            <constraint firstAttribute="trailing" secondItem="wnY-rE-zVk" secondAttribute="trailing" constant="15" id="U69-Fq-zEI"/>
+                                            <constraint firstAttribute="height" constant="40" id="i3N-zm-yy7"/>
                                         </constraints>
-                                    </tableView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8SB-bo-dX9" userLabel="Add Exercise Stack View">
-                                        <rect key="frame" x="0.0" y="340" width="375" height="40"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EzL-mo-1mb" userLabel="Add Exercise label">
+                                        <rect key="frame" x="0.0" y="80" width="375" height="40"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gny-zp-jsg" userLabel="Edit exercise name text field">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XEe-vv-EAf" userLabel="Add exercise:">
+                                                <rect key="frame" x="15" y="5" width="360" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="xdz-zr-JAk"/>
+                                                </constraints>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Add exercise:">
+                                                        <attributes>
+                                                            <font key="NSFont" size="18" name="Futura-Medium"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="XEe-vv-EAf" secondAttribute="trailing" id="0Gd-Fw-ofg"/>
+                                            <constraint firstItem="XEe-vv-EAf" firstAttribute="centerY" secondItem="EzL-mo-1mb" secondAttribute="centerY" id="HIS-5b-Pzl"/>
+                                            <constraint firstAttribute="height" constant="40" id="LlQ-s8-Nhz"/>
+                                            <constraint firstItem="XEe-vv-EAf" firstAttribute="leading" secondItem="EzL-mo-1mb" secondAttribute="leading" constant="15" id="cip-FH-kMh"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8SB-bo-dX9" userLabel="Add Exercise Stack View">
+                                        <rect key="frame" x="0.0" y="120" width="375" height="40"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Gny-zp-jsg" userLabel="Add exercise name text field">
                                                 <rect key="frame" x="0.0" y="0.0" width="325" height="40"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Add exercise" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QYU-Us-ZYB">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Enter exercise name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QYU-Us-ZYB">
                                                         <rect key="frame" x="15" y="0.0" width="295" height="40"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
@@ -413,16 +457,16 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cTI-sG-scs" userLabel="Edit name label">
-                                        <rect key="frame" x="0.0" y="380" width="375" height="40"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Cs-LQ-vj9" userLabel="Exercise log label">
+                                        <rect key="frame" x="0.0" y="160" width="375" height="40"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Stc-4l-JmL">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5J3-fl-viD">
                                                 <rect key="frame" x="15" y="5" width="360" height="30"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="9tf-eD-Kds"/>
+                                                    <constraint firstAttribute="height" constant="30" id="wE1-rq-oI5"/>
                                                 </constraints>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="Edit name:">
+                                                    <fragment content="Exercise log:">
                                                         <attributes>
                                                             <font key="NSFont" size="18" name="Futura-Medium"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
@@ -434,46 +478,23 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Stc-4l-JmL" secondAttribute="trailing" id="Ict-iE-6nC"/>
-                                            <constraint firstItem="Stc-4l-JmL" firstAttribute="centerY" secondItem="cTI-sG-scs" secondAttribute="centerY" id="K41-ba-YwW"/>
-                                            <constraint firstAttribute="height" constant="40" id="Tq3-ra-pf6"/>
-                                            <constraint firstItem="Stc-4l-JmL" firstAttribute="leading" secondItem="cTI-sG-scs" secondAttribute="leading" constant="15" id="gmT-Cj-oi1"/>
-                                        </constraints>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dp-ac-3c1" userLabel="Edit name text field">
-                                        <rect key="frame" x="0.0" y="420" width="375" height="40"/>
-                                        <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Enter workout name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wnY-rE-zVk">
-                                                <rect key="frame" x="15" y="0.0" width="345" height="40"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="40" id="RcX-OS-syH"/>
-                                                </constraints>
-                                                <attributedString key="attributedText"/>
-                                                <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="Fnt-xi-2Ec" id="bUl-h3-6NU"/>
-                                                </connections>
-                                            </textField>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="wnY-rE-zVk" firstAttribute="centerY" secondItem="5dp-ac-3c1" secondAttribute="centerY" id="5sv-ro-bC8"/>
-                                            <constraint firstItem="wnY-rE-zVk" firstAttribute="leading" secondItem="5dp-ac-3c1" secondAttribute="leading" constant="15" id="JWL-EB-jQE"/>
-                                            <constraint firstAttribute="trailing" secondItem="wnY-rE-zVk" secondAttribute="trailing" constant="15" id="U69-Fq-zEI"/>
-                                            <constraint firstAttribute="height" constant="40" id="i3N-zm-yy7"/>
+                                            <constraint firstItem="5J3-fl-viD" firstAttribute="centerY" secondItem="4Cs-LQ-vj9" secondAttribute="centerY" id="1kD-f4-1ZY"/>
+                                            <constraint firstAttribute="trailing" secondItem="5J3-fl-viD" secondAttribute="trailing" id="7NK-yY-HTr"/>
+                                            <constraint firstItem="5J3-fl-viD" firstAttribute="leading" secondItem="4Cs-LQ-vj9" secondAttribute="leading" constant="15" id="8xY-Af-KDc"/>
+                                            <constraint firstAttribute="height" constant="40" id="wUH-Ke-Tez"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="sWj-HA-xma" secondAttribute="trailing" id="RA5-qh-5Xi"/>
                                     <constraint firstAttribute="trailing" secondItem="8SB-bo-dX9" secondAttribute="trailing" id="fNV-AB-zkE"/>
-                                    <constraint firstItem="sWj-HA-xma" firstAttribute="top" secondItem="4Cs-LQ-vj9" secondAttribute="bottom" id="kMF-eV-rPK"/>
                                     <constraint firstItem="8SB-bo-dX9" firstAttribute="leading" secondItem="Mzx-XK-fUY" secondAttribute="leading" id="ppC-Ty-2Fu"/>
-                                    <constraint firstItem="sWj-HA-xma" firstAttribute="leading" secondItem="Mzx-XK-fUY" secondAttribute="leading" id="rrX-R0-hz1"/>
                                     <constraint firstItem="8SB-bo-dX9" firstAttribute="centerX" secondItem="Mzx-XK-fUY" secondAttribute="centerX" id="zBD-Sg-i3g"/>
                                 </constraints>
                             </stackView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sWj-HA-xma" userLabel="Exercise log table">
+                                <rect key="frame" x="0.0" y="275" width="375" height="392"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -482,7 +503,11 @@
                             <constraint firstItem="q4w-JC-fsE" firstAttribute="top" secondItem="Qci-IM-0c0" secondAttribute="top" id="KD7-bf-1Pl"/>
                             <constraint firstItem="Mzx-XK-fUY" firstAttribute="leading" secondItem="Fuq-yn-68S" secondAttribute="leading" id="KRK-5h-ldV"/>
                             <constraint firstItem="Mzx-XK-fUY" firstAttribute="trailing" secondItem="Fuq-yn-68S" secondAttribute="trailing" id="N3V-M2-g7b"/>
+                            <constraint firstItem="sWj-HA-xma" firstAttribute="top" secondItem="Mzx-XK-fUY" secondAttribute="bottom" id="NQE-hP-bkH"/>
+                            <constraint firstItem="Fuq-yn-68S" firstAttribute="bottom" secondItem="sWj-HA-xma" secondAttribute="bottom" id="YNK-xR-TB4"/>
+                            <constraint firstItem="sWj-HA-xma" firstAttribute="trailing" secondItem="Fuq-yn-68S" secondAttribute="trailing" id="f9m-he-ODe"/>
                             <constraint firstAttribute="trailing" secondItem="q4w-JC-fsE" secondAttribute="trailing" id="m4m-aW-q5x"/>
+                            <constraint firstItem="sWj-HA-xma" firstAttribute="leading" secondItem="Fuq-yn-68S" secondAttribute="leading" id="zAN-Tf-Kq8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Fuq-yn-68S"/>
                     </view>
@@ -510,9 +535,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9EL-YD-t2q" userLabel="Header View">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="75"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOM-FX-zR2">
-                                        <rect key="frame" x="122" y="32" width="140" height="44"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dOM-FX-zR2">
+                                        <rect key="frame" x="121.5" y="29" width="132" height="44"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Placeholder">
                                                 <attributes>
@@ -546,8 +570,10 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="kdo-X7-5Bs" secondAttribute="bottom" constant="2" id="2SH-U4-S7F"/>
                                     <constraint firstItem="kdo-X7-5Bs" firstAttribute="leading" secondItem="9EL-YD-t2q" secondAttribute="leading" constant="8" id="7K0-o2-TU1"/>
+                                    <constraint firstAttribute="bottom" secondItem="dOM-FX-zR2" secondAttribute="bottom" constant="2" id="CTg-CD-X6C"/>
                                     <constraint firstAttribute="width" constant="375" id="DBN-fW-nzD"/>
                                     <constraint firstAttribute="height" constant="75" id="bJs-Kf-cZg"/>
+                                    <constraint firstItem="dOM-FX-zR2" firstAttribute="centerX" secondItem="9EL-YD-t2q" secondAttribute="centerX" id="xXi-OO-jPz"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="650-cU-2h7">
@@ -612,7 +638,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="9EL-YD-t2q" firstAttribute="top" secondItem="Uah-Rd-ETi" secondAttribute="top" id="63h-Zi-Pnj"/>
                             <constraint firstItem="8uT-uB-nLS" firstAttribute="leading" secondItem="650-cU-2h7" secondAttribute="trailing" constant="8" symbolic="YES" id="91Y-NW-5Uw"/>
@@ -648,7 +674,6 @@
                         <outlet property="repsField" destination="hBp-i2-fMi" id="ehv-7s-4Ix"/>
                         <outlet property="setRepsTableView" destination="eWO-El-97W" id="VG6-x1-j5X"/>
                         <outlet property="weightField" destination="650-cU-2h7" id="C4f-M9-xdf"/>
-                        <segue destination="AuP-mW-LHP" kind="show" identifier="finishExerciseSegue" id="3GZ-QP-M1o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3BM-1D-cVP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -659,7 +684,4 @@
     <resources>
         <image name="Weight Room" width="960" height="1206"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="lvc-Lh-vQG"/>
-    </inferredMetricsTieBreakers>
 </document>

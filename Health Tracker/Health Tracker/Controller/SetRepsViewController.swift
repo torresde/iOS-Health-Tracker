@@ -7,18 +7,24 @@
 //
 
 import UIKit
+import CoreData
 
 class SetRepsViewController: UIViewController {
 
-    
-    var sets: [String] = []
     @IBOutlet var exerciseName: UILabel!
     @IBOutlet var setRepsTableView: UITableView!
     @IBOutlet var repsField: UITextField!
     @IBOutlet var weightField: UITextField!
     @IBOutlet var addSetButton: UIButton!
     
-    var exerciseNameText = ""
+    var setsArray = [Set]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    var selectedExercise : Exercise? {
+        didSet{
+            loadSets()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +32,33 @@ class SetRepsViewController: UIViewController {
         setRepsTableView.delegate = self
         setRepsTableView.dataSource = self
         
-        exerciseName.text = exerciseNameText
+        exerciseName.text = selectedExercise?.exerciseName
         setRepsTableView.tableFooterView = UIView(frame: CGRect.zero)
+    }
+    
+    func saveSets() {
+        
+        do {
+            try context.save()
+        } catch {
+            print("Error saving exercise \(error)")
+        }
+        
+    }
+    
+    func loadSets() {
+        let request : NSFetchRequest<Set> = Set.fetchRequest()
+        
+        let predicate = NSPredicate(format: "parentExercise.name MATCHES %@", selectedExercise!.exerciseName!)
+        
+        request.predicate = predicate
+        do {
+            setsArray = try context.fetch(request)
+        } catch {
+            print("Error loading exercises \(error)")
+        }
+        
+        setRepsTableView.reloadData()
     }
     
     @IBAction func BackButtonPressed(_ sender: Any) {
@@ -39,33 +70,36 @@ class SetRepsViewController: UIViewController {
     }
     
     func insertNewCell() {
-        sets.append("REPS: " + String(repsField.text!) + "     WEIGHT: " + String(weightField.text!) + "lbs")
-        let indexPath = IndexPath(row: sets.count - 1, section: 0)
+        let newSet = Set(context: context)
+        newSet.reps = repsField.text!
+        newSet.weight = repsField.text!
+        setsArray.append(newSet)
+        let indexPath = IndexPath(row: setsArray.count - 1, section: 0)
+        
+        saveSets()
+        
         setRepsTableView.beginUpdates()
         setRepsTableView.insertRows(at: [indexPath], with: .automatic)
         setRepsTableView.endUpdates()
         
         repsField.text = ""
         weightField.text = ""
-        
         view.endEditing(true)
-        
     }
-    
     
 }
 
 extension SetRepsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sets.count
+        return setsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "setsTableViewCell")! as UITableViewCell
 
-        cell.textLabel?.text = sets[indexPath.row]
+        cell.textLabel?.text = "REPS: " + setsArray[indexPath.row].reps! + "     WEIGHT: " + setsArray[indexPath.row].weight! + " lbs"
         
         return cell
     }
@@ -78,12 +112,16 @@ extension SetRepsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            sets.remove(at: indexPath.row)
+            setsArray.remove(at: indexPath.row)
             
             setRepsTableView.beginUpdates()
             setRepsTableView.deleteRows(at: [indexPath], with: .automatic)
             setRepsTableView.endUpdates()
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
     }
     
 }
