@@ -63,7 +63,7 @@ class SetNameViewController: UIViewController, UITextFieldDelegate {
                 print("Error saving exercise \(error)")
             }
             
-            destinationVC.workoutName = enterNameTextField.text!
+            destinationVC.selectedWorkout = newWorkout
         }
     }
 

@@ -88,6 +88,13 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    func createNewExercise() {
+        let newExercise = Exercise(context: context)
+        newExercise.exerciseName = addExerciseTextField.text!
+        newExercise.parentWorkout = selectedWorkout
+        exerciseArray.append(newExercise)
+    }
+    
 }
 
 extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
@@ -105,23 +112,20 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     func loadExercises() {
         let request : NSFetchRequest<Exercise> = Exercise.fetchRequest()
         
-        let predicate = NSPredicate(format: "parentWorkout.name MATCHES %@", selectedWorkout!.workoutName!)
-        
-        request.predicate = predicate
+//        let predicate = NSPredicate(format: "parentWorkout.'name' MATCHES %@", selectedWorkout!.workoutName!)
+//
+//        request.predicate = predicate
         do {
             exerciseArray = try context.fetch(request)
         } catch {
             print("Error loading exercises \(error)")
         }
         
-        exerciseLogTableView.reloadData()
     }
     
     func insertNewExercise() {
-        let newExercise = Exercise(context: context)
-        newExercise.exerciseName = addExerciseTextField.text!
-        newExercise.parentWorkout = selectedWorkout
-        exerciseArray.append(newExercise)
+        createNewExercise()
+        
         let indexPath = IndexPath(row: exerciseArray.count - 1, section: 0)
         
         saveExercises()

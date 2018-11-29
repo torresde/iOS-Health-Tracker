@@ -49,16 +49,15 @@ class SetRepsViewController: UIViewController {
     func loadSets() {
         let request : NSFetchRequest<Set> = Set.fetchRequest()
         
-        let predicate = NSPredicate(format: "parentExercise.name MATCHES %@", selectedExercise!.exerciseName!)
-        
-        request.predicate = predicate
+//        let predicate = NSPredicate(format: "parentExercise.name MATCHES %@", selectedExercise!.exerciseName!)
+//
+//        request.predicate = predicate
         do {
             setsArray = try context.fetch(request)
         } catch {
             print("Error loading exercises \(error)")
         }
         
-        setRepsTableView.reloadData()
     }
     
     @IBAction func BackButtonPressed(_ sender: Any) {
@@ -72,7 +71,7 @@ class SetRepsViewController: UIViewController {
     func insertNewCell() {
         let newSet = Set(context: context)
         newSet.reps = repsField.text!
-        newSet.weight = repsField.text!
+        newSet.weight = weightField.text!
         setsArray.append(newSet)
         let indexPath = IndexPath(row: setsArray.count - 1, section: 0)
         
