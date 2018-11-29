@@ -143,7 +143,7 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseLogTableViewCell", for: indexPath) as! ExerciseLogTableViewCell
         
         cell.exerciseNameLabel.text = exerciseArray[indexPath.row].exerciseName
-        cell.exerciseSetsLabel.text = "2 sets"
+        cell.exerciseSetsLabel.text = "0 sets"
         
         return cell
     }
