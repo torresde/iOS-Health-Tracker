@@ -159,7 +159,10 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
+            context.delete(exerciseArray[indexPath.row])
             exerciseArray.remove(at: indexPath.row)
+            
+            saveExercises()
             
             exerciseLogTableView.beginUpdates()
             exerciseLogTableView.deleteRows(at: [indexPath], with: .automatic)
