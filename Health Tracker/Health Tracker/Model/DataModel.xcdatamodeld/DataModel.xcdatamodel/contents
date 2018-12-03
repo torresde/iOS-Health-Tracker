@@ -11,6 +11,7 @@
     <entity name="Set" representedClassName="Set" syncable="YES" codeGenerationType="class">
         <attribute name="exerciseDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="reps" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="setDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="weight" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="parentExercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="sets" inverseEntity="Exercise" syncable="YES"/>
     </entity>
@@ -21,7 +22,7 @@
     </entity>
     <elements>
         <element name="Exercise" positionX="-5708" positionY="-1287" width="128" height="133"/>
-        <element name="Set" positionX="-5706" positionY="-1137" width="128" height="103"/>
+        <element name="Set" positionX="-5706" positionY="-1137" width="128" height="120"/>
         <element name="Workout" positionX="-5706" positionY="-1422" width="128" height="88"/>
     </elements>
 </model>

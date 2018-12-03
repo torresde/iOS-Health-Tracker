@@ -18,6 +18,7 @@ class SetRepsViewController: UIViewController {
     @IBOutlet weak var addSetButton: UIButton!
     
     var setsArray = [Set]()
+    var prevSetsArray = [Set]()
     var exerciseDelegate: resetTableData?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -47,6 +48,34 @@ class SetRepsViewController: UIViewController {
         
     }
     
+    func filterSets(everySetArray: [Set]) {
+        var tmpPrevSets = [Set]()
+        
+        for item in everySetArray {
+            if let exerciseDate = item.exerciseDate {
+                if exerciseDate == selectedExercise?.exerciseDate {
+                    setsArray.append(item)
+                } else if exerciseDate < (selectedExercise?.exerciseDate)! && tmpPrevSets.isEmpty {
+                    tmpPrevSets.append(item)
+                } else if exerciseDate < (selectedExercise?.exerciseDate)! && !tmpPrevSets.isEmpty {
+                    if exerciseDate > tmpPrevSets[0].exerciseDate! {
+                        tmpPrevSets.removeAll()
+                        tmpPrevSets.append(item)
+                    } else if exerciseDate == tmpPrevSets[0].exerciseDate! {
+                        tmpPrevSets.append(item)
+                    }
+                }
+            }
+        }
+        
+        if !tmpPrevSets.isEmpty {
+            for prevSet in tmpPrevSets.sorted(by: {($0.setDate!).compare($1.setDate!) == .orderedAscending}) {
+                let newPrevSet = createNewSet(repsInput: prevSet.reps!, weightInput: prevSet.weight!)
+                prevSetsArray.append(newPrevSet)
+            }
+        }
+    }
+    
     func loadSets() {
         let request : NSFetchRequest<Set> = Set.fetchRequest()
         
@@ -55,11 +84,7 @@ class SetRepsViewController: UIViewController {
         request.predicate = predicate
         do {
             let everySetArray = try context.fetch(request)
-            for item in everySetArray {
-                if item.exerciseDate == selectedExercise?.exerciseDate {
-                    setsArray.append(item)
-                }
-            }
+            filterSets(everySetArray: everySetArray)
         } catch {
             print("Error loading exercises \(error)")
         }
@@ -75,22 +100,25 @@ class SetRepsViewController: UIViewController {
         insertNewCell()
     }
     
-    func insertNewCell() {
+    func createNewSet(repsInput: String, weightInput: String) -> Set {
         let newSet = Set(context: context)
-        newSet.reps = repsInputTextField.text!
-        newSet.weight = weightInputTextField.text!
+        newSet.reps = repsInput
+        newSet.weight = weightInput
+        return newSet
+    }
+    
+    func insertNewCell() {
+        let newSet = createNewSet(repsInput: repsInputTextField.text!, weightInput: weightInputTextField.text!)
         newSet.parentExercise = selectedExercise
         newSet.exerciseDate = selectedExercise?.exerciseDate
+        newSet.setDate = Date()
+        
         selectedExercise?.exerciseSets += 1
         setsArray.append(newSet)
-        let indexPath = IndexPath(row: setsArray.count - 1, section: 0)
         
         saveSets()
         
-        setsTableView.beginUpdates()
-        setsTableView.insertRows(at: [indexPath], with: .automatic)
-        setsTableView.endUpdates()
-        
+        setsTableView.reloadData()
         repsInputTextField.text = ""
         weightInputTextField.text = ""
         view.endEditing(true)
@@ -101,21 +129,31 @@ class SetRepsViewController: UIViewController {
 extension SetRepsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return setsArray.count
+        return setsArray.count < prevSetsArray.count ? prevSetsArray.count : setsArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "setsLogTableViewCell", for: indexPath) as! SetsLogTableViewCell
-        
         cell.setsNumberLabel.text = "Set " + String(indexPath.row + 1) + ":"
-        cell.repsTextField.text = setsArray[indexPath.row].reps!
-        cell.weightTextField.text = setsArray[indexPath.row].weight!
-        cell.lastTimeLabel.text = "Last time: 8 reps of 20"
+        
+        if indexPath.row < setsArray.count {
+            cell.repsTextField.text = setsArray[indexPath.row].reps!
+            cell.weightTextField.text = setsArray[indexPath.row].weight!
+        } else {
+            cell.repsTextField.text = ""
+            cell.weightTextField.text = ""
+        }
+        
+        if indexPath.row < prevSetsArray.count {
+            cell.lastTimeLabel.text = "Last time: "
+                + prevSetsArray[indexPath.row].reps! + " reps of "
+                + prevSetsArray[indexPath.row].weight! + " lbs"
+        } else {
+            cell.lastTimeLabel.text = ""
+        }
         
         return cell
     }
-    
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true

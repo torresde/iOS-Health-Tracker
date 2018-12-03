@@ -689,14 +689,14 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4QZ-PL-o9p" userLabel="Enter Reps View">
-                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="40"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="115" height="40"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Enter Reps" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0bx-B6-mEt" userLabel="Enter Reps Text Field">
-                                                                <rect key="frame" x="15" y="0.0" width="125" height="40"/>
+                                                                <rect key="frame" x="15" y="0.0" width="100" height="40"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="Wm6-A8-l1Z"/>
-                                                                    <constraint firstAttribute="width" constant="125" id="jDe-k8-v4V"/>
+                                                                    <constraint firstAttribute="width" constant="100" id="jDe-k8-v4V"/>
                                                                 </constraints>
                                                                 <attributedString key="attributedText"/>
                                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done"/>
@@ -710,22 +710,40 @@
                                                             <constraint firstItem="0bx-B6-mEt" firstAttribute="leading" secondItem="4QZ-PL-o9p" secondAttribute="leading" constant="15" id="Fh6-hu-Dih"/>
                                                             <constraint firstItem="0bx-B6-mEt" firstAttribute="centerY" secondItem="4QZ-PL-o9p" secondAttribute="centerY" id="e4C-ws-CpU"/>
                                                             <constraint firstAttribute="height" constant="40" id="h1z-OM-J4A"/>
-                                                            <constraint firstAttribute="width" constant="140" id="mfH-HI-2DW"/>
+                                                            <constraint firstAttribute="width" constant="115" id="mfH-HI-2DW"/>
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qdV-bK-NcC" userLabel="Spacer View">
-                                                        <rect key="frame" x="140" y="0.0" width="45" height="40"/>
+                                                        <rect key="frame" x="115" y="0.0" width="95" height="40"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8x3-Ky-JGv">
+                                                                <rect key="frame" x="23" y="10" width="50.5" height="21"/>
+                                                                <attributedString key="attributedText">
+                                                                    <fragment content="reps of">
+                                                                        <attributes>
+                                                                            <font key="NSFont" size="16" name="Futura-Medium"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstItem="8x3-Ky-JGv" firstAttribute="centerY" secondItem="qdV-bK-NcC" secondAttribute="centerY" id="1tf-oP-14z"/>
+                                                            <constraint firstItem="8x3-Ky-JGv" firstAttribute="centerX" secondItem="qdV-bK-NcC" secondAttribute="centerX" id="KsI-GM-I5g"/>
+                                                        </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DfU-fF-enB" userLabel="Enter Weight View">
-                                                        <rect key="frame" x="185" y="0.0" width="140" height="40"/>
+                                                        <rect key="frame" x="210" y="0.0" width="115" height="40"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" placeholder="Enter Weight" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nt6-Os-bbz" userLabel="Enter Weight Text Field">
-                                                                <rect key="frame" x="0.0" y="0.0" width="125" height="40"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="40"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="iqf-gj-jBJ"/>
-                                                                    <constraint firstAttribute="width" constant="125" id="uGz-V2-pWd"/>
+                                                                    <constraint firstAttribute="width" constant="100" id="uGz-V2-pWd"/>
                                                                 </constraints>
                                                                 <attributedString key="attributedText"/>
                                                                 <textInputTraits key="textInputTraits" spellCheckingType="no" returnKeyType="done"/>
@@ -739,7 +757,7 @@
                                                             <constraint firstAttribute="height" constant="40" id="Izi-Vj-u9K"/>
                                                             <constraint firstItem="nt6-Os-bbz" firstAttribute="centerY" secondItem="DfU-fF-enB" secondAttribute="centerY" id="JIN-2e-D7z"/>
                                                             <constraint firstAttribute="trailing" secondItem="nt6-Os-bbz" secondAttribute="trailing" constant="15" id="Yrf-Iu-qeD"/>
-                                                            <constraint firstAttribute="width" constant="140" id="tk6-2J-vXW"/>
+                                                            <constraint firstAttribute="width" constant="115" id="tk6-2J-vXW"/>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="64I-ua-7Kj" userLabel="Add Set Button">
