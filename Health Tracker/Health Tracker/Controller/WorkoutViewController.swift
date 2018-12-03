@@ -9,7 +9,11 @@
 import UIKit
 import CoreData
 
-class WorkoutViewController: UIViewController, UITextFieldDelegate {
+protocol resetTableData {
+    func reloadTableData()
+}
+
+class WorkoutViewController: UIViewController, UITextFieldDelegate, resetTableData {
 
     @IBOutlet weak var workoutNameLabel: UILabel!
     @IBOutlet weak var editNameTextField: UITextField!
@@ -82,6 +86,7 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "setRepsSegue" {
             let destinationVC = segue.destination as! SetRepsViewController
+            destinationVC.exerciseDelegate = self
             if let indexPath = exerciseLogTableView.indexPathForSelectedRow {
                 destinationVC.selectedExercise = exerciseArray[indexPath.row]
             }
@@ -92,7 +97,13 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
         let newExercise = Exercise(context: context)
         newExercise.exerciseName = addExerciseTextField.text!
         newExercise.parentWorkout = selectedWorkout
+        newExercise.workoutDate = selectedWorkout?.workoutDate
+        newExercise.exerciseSets = 0
         exerciseArray.append(newExercise)
+    }
+    
+    func reloadTableData() {
+        exerciseLogTableView.reloadData()
     }
     
 }
@@ -112,11 +123,16 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     func loadExercises() {
         let request : NSFetchRequest<Exercise> = Exercise.fetchRequest()
         
-        let predicate = NSPredicate(format: "parentWorkout.workoutName MATCHES %@", selectedWorkout!.workoutName!)
-
-        request.predicate = predicate
+        let namePredicate = NSPredicate(format: "parentWorkout.workoutName MATCHES %@", selectedWorkout!.workoutName!)
+        
+        request.predicate = namePredicate
         do {
-            exerciseArray = try context.fetch(request)
+            let everyExerciseArray = try context.fetch(request)
+            for item in everyExerciseArray {
+                if item.workoutDate == selectedWorkout?.workoutDate {
+                    exerciseArray.append(item)
+                }
+            }
         } catch {
             print("Error loading exercises \(error)")
         }
@@ -143,7 +159,14 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseLogTableViewCell", for: indexPath) as! ExerciseLogTableViewCell
         
         cell.exerciseNameLabel.text = exerciseArray[indexPath.row].exerciseName
-        cell.exerciseSetsLabel.text = "0 sets"
+        
+        if exerciseArray[indexPath.row].exerciseSets == 0 {
+            cell.exerciseSetsLabel.text = "No sets"
+        } else if exerciseArray[indexPath.row].exerciseSets == 1 {
+            cell.exerciseSetsLabel.text = "1 set"
+        } else {
+            cell.exerciseSetsLabel.text = String(exerciseArray[indexPath.row].exerciseSets) + " sets"
+        }
         
         return cell
     }

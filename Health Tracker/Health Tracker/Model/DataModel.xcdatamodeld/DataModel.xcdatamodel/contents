@@ -2,6 +2,8 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17D47" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Exercise" representedClassName="Exercise" syncable="YES" codeGenerationType="class">
         <attribute name="exerciseName" attributeType="String" syncable="YES"/>
+        <attribute name="exerciseSets" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="workoutDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="parentWorkout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="exercises" inverseEntity="Workout" syncable="YES"/>
         <relationship name="sets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Set" inverseName="parentExercise" inverseEntity="Set" syncable="YES"/>
     </entity>
@@ -16,8 +18,8 @@
         <relationship name="exercises" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Exercise" inverseName="parentWorkout" inverseEntity="Exercise" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Workout" positionX="-5706" positionY="-1422" width="128" height="88"/>
-        <element name="Exercise" positionX="-5708" positionY="-1287" width="128" height="88"/>
+        <element name="Exercise" positionX="-5708" positionY="-1287" width="128" height="118"/>
         <element name="Set" positionX="-5706" positionY="-1137" width="128" height="88"/>
+        <element name="Workout" positionX="-5706" positionY="-1422" width="128" height="88"/>
     </elements>
 </model>

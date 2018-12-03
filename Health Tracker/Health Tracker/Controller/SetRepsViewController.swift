@@ -12,12 +12,13 @@ import CoreData
 class SetRepsViewController: UIViewController {
 
     @IBOutlet var exerciseName: UILabel!
-    @IBOutlet var setRepsTableView: UITableView!
-    @IBOutlet var repsField: UITextField!
-    @IBOutlet var weightField: UITextField!
-    @IBOutlet var addSetButton: UIButton!
+    @IBOutlet weak var setsTableView: UITableView!
+    @IBOutlet weak var repsInputTextField: UITextField!
+    @IBOutlet weak var weightInputTextField: UITextField!
+    @IBOutlet weak var addSetButton: UIButton!
     
     var setsArray = [Set]()
+    var exerciseDelegate: resetTableData?
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var selectedExercise : Exercise? {
@@ -29,11 +30,11 @@ class SetRepsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setRepsTableView.delegate = self
-        setRepsTableView.dataSource = self
-        
         exerciseName.text = selectedExercise?.exerciseName
-        setRepsTableView.tableFooterView = UIView(frame: CGRect.zero)
+        
+        setsTableView.delegate = self
+        setsTableView.dataSource = self
+        setsTableView.register(UINib(nibName: "SetsLogTableViewCell", bundle: nil), forCellReuseIdentifier: "setsLogTableViewCell")
     }
     
     func saveSets() {
@@ -61,29 +62,31 @@ class SetRepsViewController: UIViewController {
     }
     
     @IBAction func BackButtonPressed(_ sender: Any) {
+        self.exerciseDelegate?.reloadTableData()
         dismiss(animated: false, completion: nil)
     }
     
-    @IBAction func addSetPressed(_ sender: Any) {
+    @IBAction func addSetButtonPressed(_ sender: Any) {
         insertNewCell()
     }
     
     func insertNewCell() {
         let newSet = Set(context: context)
-        newSet.reps = repsField.text!
-        newSet.weight = weightField.text!
+        newSet.reps = repsInputTextField.text!
+        newSet.weight = weightInputTextField.text!
         newSet.parentExercise = selectedExercise
+        selectedExercise?.exerciseSets += 1
         setsArray.append(newSet)
         let indexPath = IndexPath(row: setsArray.count - 1, section: 0)
         
         saveSets()
         
-        setRepsTableView.beginUpdates()
-        setRepsTableView.insertRows(at: [indexPath], with: .automatic)
-        setRepsTableView.endUpdates()
+        setsTableView.beginUpdates()
+        setsTableView.insertRows(at: [indexPath], with: .automatic)
+        setsTableView.endUpdates()
         
-        repsField.text = ""
-        weightField.text = ""
+        repsInputTextField.text = ""
+        weightInputTextField.text = ""
         view.endEditing(true)
     }
     
@@ -97,9 +100,12 @@ extension SetRepsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "setsTableViewCell")! as UITableViewCell
-
-        cell.textLabel?.text = "REPS: " + setsArray[indexPath.row].reps! + "     WEIGHT: " + setsArray[indexPath.row].weight! + " lbs"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "setsLogTableViewCell", for: indexPath) as! SetsLogTableViewCell
+        
+        cell.setsNumberLabel.text = "Set " + String(indexPath.row + 1) + ":"
+        cell.repsTextField.text = setsArray[indexPath.row].reps!
+        cell.weightTextField.text = setsArray[indexPath.row].weight!
+        cell.lastTimeLabel.text = "Last time: 8 reps of 20"
         
         return cell
     }
@@ -114,12 +120,11 @@ extension SetRepsViewController: UITableViewDelegate, UITableViewDataSource {
         if editingStyle == .delete {
             context.delete(setsArray[indexPath.row])
             setsArray.remove(at: indexPath.row)
+            selectedExercise?.exerciseSets -= 1
             
             saveSets()
             
-            setRepsTableView.beginUpdates()
-            setRepsTableView.deleteRows(at: [indexPath], with: .automatic)
-            setRepsTableView.endUpdates()
+            setsTableView.reloadData()
         }
     }
     

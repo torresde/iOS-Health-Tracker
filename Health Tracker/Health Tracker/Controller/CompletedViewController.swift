@@ -76,7 +76,7 @@ extension CompletedViewController: UITableViewDelegate, UITableViewDataSource {
         cell.workoutNameLabel.text = workoutArray[indexPath.row].workoutName
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd/yyyy"
+        formatter.dateFormat = "EEE dd"
         
         if let date = workoutArray[indexPath.row].workoutDate {
             cell.workoutDateLabel.text = formatter.string(from: date)
