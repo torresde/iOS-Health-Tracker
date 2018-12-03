@@ -71,6 +71,8 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, resetTableDa
         }
         
         workoutNameLabel.text = nameText
+        selectedWorkout?.workoutName = nameText
+        saveExercises()
         
         return true
     }
