@@ -98,6 +98,7 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, resetTableDa
         newExercise.exerciseName = addExerciseTextField.text!
         newExercise.parentWorkout = selectedWorkout
         newExercise.workoutDate = selectedWorkout?.workoutDate
+        newExercise.exerciseDate = Date()
         newExercise.exerciseSets = 0
         exerciseArray.append(newExercise)
     }

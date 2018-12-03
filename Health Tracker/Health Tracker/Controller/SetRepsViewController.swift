@@ -54,7 +54,12 @@ class SetRepsViewController: UIViewController {
 
         request.predicate = predicate
         do {
-            setsArray = try context.fetch(request)
+            let everySetArray = try context.fetch(request)
+            for item in everySetArray {
+                if item.exerciseDate == selectedExercise?.exerciseDate {
+                    setsArray.append(item)
+                }
+            }
         } catch {
             print("Error loading exercises \(error)")
         }
@@ -75,6 +80,7 @@ class SetRepsViewController: UIViewController {
         newSet.reps = repsInputTextField.text!
         newSet.weight = weightInputTextField.text!
         newSet.parentExercise = selectedExercise
+        newSet.exerciseDate = selectedExercise?.exerciseDate
         selectedExercise?.exerciseSets += 1
         setsArray.append(newSet)
         let indexPath = IndexPath(row: setsArray.count - 1, section: 0)
