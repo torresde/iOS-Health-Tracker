@@ -58,6 +58,7 @@ class SetNameViewController: UIViewController, UITextFieldDelegate {
             let newWorkout = Workout(context: context)
             newWorkout.workoutName = enterNameTextField.text!
             newWorkout.workoutDate = Date()
+            
             do {
                 try context.save()
             } catch {

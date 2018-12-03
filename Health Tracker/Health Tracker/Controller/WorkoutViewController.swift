@@ -33,6 +33,7 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, resetTableDa
     var myIndex = 0
     
     var exerciseArray = [Exercise]()
+    var prevExerciseArray = [Exercise]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
@@ -93,9 +94,9 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate, resetTableDa
         }
     }
     
-    func createNewExercise() {
+    func createNewExercise(exerciseName: String) {
         let newExercise = Exercise(context: context)
-        newExercise.exerciseName = addExerciseTextField.text!
+        newExercise.exerciseName = exerciseName
         newExercise.parentWorkout = selectedWorkout
         newExercise.workoutDate = selectedWorkout?.workoutDate
         newExercise.exerciseDate = Date()
@@ -121,6 +122,40 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     
+    func filterExercises(everyExerciseArray: [Exercise]) {
+        for item in everyExerciseArray {
+            if let workoutDate = item.workoutDate {
+                if workoutDate == selectedWorkout?.workoutDate {
+                    exerciseArray.append(item)
+                }
+                
+                if !exerciseArray.isEmpty {
+                    continue
+                }
+                
+                if workoutDate < (selectedWorkout?.workoutDate)! && prevExerciseArray.isEmpty {
+                    prevExerciseArray.append(item)
+                } else if workoutDate < (selectedWorkout?.workoutDate)! && !prevExerciseArray.isEmpty {
+                    if workoutDate > prevExerciseArray[0].workoutDate! {
+                        prevExerciseArray.removeAll()
+                        prevExerciseArray.append(item)
+                    } else if workoutDate == prevExerciseArray[0].workoutDate! {
+                        prevExerciseArray.append(item)
+                    }
+                }
+            }
+        }
+        
+        if !exerciseArray.isEmpty {
+            prevExerciseArray.removeAll()
+        } else if exerciseArray.isEmpty && !prevExerciseArray.isEmpty {
+            for exercise in prevExerciseArray.sorted(by: {($0.workoutDate!).compare($1.workoutDate!) == .orderedAscending}) {
+                createNewExercise(exerciseName: exercise.exerciseName!)
+            }
+            saveExercises()
+        }
+    }
+    
     func loadExercises() {
         let request : NSFetchRequest<Exercise> = Exercise.fetchRequest()
         
@@ -129,11 +164,7 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
         request.predicate = namePredicate
         do {
             let everyExerciseArray = try context.fetch(request)
-            for item in everyExerciseArray {
-                if item.workoutDate == selectedWorkout?.workoutDate {
-                    exerciseArray.append(item)
-                }
-            }
+            filterExercises(everyExerciseArray: everyExerciseArray)
         } catch {
             print("Error loading exercises \(error)")
         }
@@ -141,7 +172,7 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func insertNewExercise() {
-        createNewExercise()
+        createNewExercise(exerciseName: addExerciseTextField.text!)
         
         let indexPath = IndexPath(row: exerciseArray.count - 1, section: 0)
         
