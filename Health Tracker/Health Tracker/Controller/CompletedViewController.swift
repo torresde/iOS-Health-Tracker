@@ -29,7 +29,8 @@ class CompletedViewController: UIViewController {
         let request : NSFetchRequest<Workout> = Workout.fetchRequest()
 
         do {
-            workoutArray = try context.fetch(request)
+            let unsortedWorkoutArray = try context.fetch(request)
+            workoutArray = unsortedWorkoutArray.sorted(by: {($0.workoutDate!).compare($1.workoutDate!) == .orderedDescending})
         } catch {
             print("Error loading workouts \(error)")
         }
