@@ -13,6 +13,8 @@ class SetNameViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var enterNameTextField: UITextField!
     @IBOutlet weak var nextButton: UIButton!
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,8 +53,19 @@ class SetNameViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "sendNameForward" {
-            let secondVC = segue.destination as! WorkoutViewController
-            secondVC.workoutName = enterNameTextField.text!
+            let destinationVC = segue.destination as! WorkoutViewController
+            
+            let newWorkout = Workout(context: context)
+            newWorkout.workoutName = enterNameTextField.text!
+            newWorkout.workoutDate = Date()
+            
+            do {
+                try context.save()
+            } catch {
+                print("Error saving exercise \(error)")
+            }
+            
+            destinationVC.selectedWorkout = newWorkout
         }
     }
 

@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import CoreData
 
-class WorkoutViewController: UIViewController, UITextFieldDelegate {
+protocol resetTableData {
+    func reloadTableData()
+}
+
+class WorkoutViewController: UIViewController, UITextFieldDelegate, resetTableData {
 
     @IBOutlet weak var workoutNameLabel: UILabel!
     @IBOutlet weak var editNameTextField: UITextField!
@@ -16,12 +21,20 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var exerciseLogTableView: UITableView!
     @IBOutlet weak var addExerciseTextField: UITextField!
     
+    
     var workoutName = ""
-    var exerciseName = ""
-    var titleArray: [String] = ["Bench Press", "Squat", "Deadlift"]
-    var subtitleArray: [String] = ["3 sets", "4 sets", "2 sets"]
+    var selectedWorkout : Workout? {
+        didSet{
+            workoutName = selectedWorkout!.workoutName!
+            loadExercises()
+        }
+    }
     
     var myIndex = 0
+    
+    var exerciseArray = [Exercise]()
+    var prevExerciseArray = [Exercise]()
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +71,8 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
         }
         
         workoutNameLabel.text = nameText
+        selectedWorkout?.workoutName = nameText
+        saveExercises()
         
         return true
     }
@@ -73,18 +88,97 @@ class WorkoutViewController: UIViewController, UITextFieldDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "setRepsSegue" {
-            let setReps = segue.destination as! SetRepsViewController
-            setReps.exerciseNameText = exerciseName
+            let destinationVC = segue.destination as! SetRepsViewController
+            destinationVC.exerciseDelegate = self
+            if let indexPath = exerciseLogTableView.indexPathForSelectedRow {
+                destinationVC.selectedExercise = exerciseArray[indexPath.row]
+            }
         }
+    }
+    
+    func createNewExercise(exerciseName: String) {
+        let newExercise = Exercise(context: context)
+        newExercise.exerciseName = exerciseName
+        newExercise.parentWorkout = selectedWorkout
+        newExercise.workoutDate = selectedWorkout?.workoutDate
+        newExercise.exerciseDate = Date()
+        newExercise.exerciseSets = 0
+        exerciseArray.append(newExercise)
+    }
+    
+    func reloadTableData() {
+        exerciseLogTableView.reloadData()
     }
     
 }
 
 extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func saveExercises() {
+        
+        do {
+           try context.save()
+        } catch {
+            print("Error saving exercise \(error)")
+        }
+        
+    }
+    
+    func filterExercises(everyExerciseArray: [Exercise]) {
+        for item in everyExerciseArray {
+            if let workoutDate = item.workoutDate {
+                if workoutDate == selectedWorkout?.workoutDate {
+                    exerciseArray.append(item)
+                }
+                
+                if !exerciseArray.isEmpty {
+                    continue
+                }
+                
+                if workoutDate < (selectedWorkout?.workoutDate)! && prevExerciseArray.isEmpty {
+                    prevExerciseArray.append(item)
+                } else if workoutDate < (selectedWorkout?.workoutDate)! && !prevExerciseArray.isEmpty {
+                    if workoutDate > prevExerciseArray[0].workoutDate! {
+                        prevExerciseArray.removeAll()
+                        prevExerciseArray.append(item)
+                    } else if workoutDate == prevExerciseArray[0].workoutDate! {
+                        prevExerciseArray.append(item)
+                    }
+                }
+            }
+        }
+        
+        if !exerciseArray.isEmpty {
+            prevExerciseArray.removeAll()
+        } else if exerciseArray.isEmpty && !prevExerciseArray.isEmpty {
+            for exercise in prevExerciseArray.sorted(by: {($0.workoutDate!).compare($1.workoutDate!) == .orderedAscending}) {
+                createNewExercise(exerciseName: exercise.exerciseName!)
+            }
+            saveExercises()
+        }
+    }
+    
+    func loadExercises() {
+        let request : NSFetchRequest<Exercise> = Exercise.fetchRequest()
+        
+        let namePredicate = NSPredicate(format: "parentWorkout.workoutName MATCHES %@", selectedWorkout!.workoutName!)
+        
+        request.predicate = namePredicate
+        do {
+            let everyExerciseArray = try context.fetch(request)
+            filterExercises(everyExerciseArray: everyExerciseArray)
+        } catch {
+            print("Error loading exercises \(error)")
+        }
+        
+    }
+    
     func insertNewExercise() {
-        titleArray.append(addExerciseTextField.text!)
-        let indexPath = IndexPath(row: titleArray.count - 1, section: 0)
+        createNewExercise(exerciseName: addExerciseTextField.text!)
+        
+        let indexPath = IndexPath(row: exerciseArray.count - 1, section: 0)
+        
+        saveExercises()
         
         exerciseLogTableView.beginUpdates()
         exerciseLogTableView.insertRows(at: [indexPath], with: .automatic)
@@ -98,14 +192,21 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "exerciseLogTableViewCell", for: indexPath) as! ExerciseLogTableViewCell
         
-        cell.exerciseNameLabel.text = titleArray[indexPath.row]
-        cell.exerciseSetsLabel.text = "2 sets"
+        cell.exerciseNameLabel.text = exerciseArray[indexPath.row].exerciseName
+        
+        if exerciseArray[indexPath.row].exerciseSets == 0 {
+            cell.exerciseSetsLabel.text = "No sets"
+        } else if exerciseArray[indexPath.row].exerciseSets == 1 {
+            cell.exerciseSetsLabel.text = "1 set"
+        } else {
+            cell.exerciseSetsLabel.text = String(exerciseArray[indexPath.row].exerciseSets) + " sets"
+        }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titleArray.count
+        return exerciseArray.count
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -115,7 +216,10 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            titleArray.remove(at: indexPath.row)
+            context.delete(exerciseArray[indexPath.row])
+            exerciseArray.remove(at: indexPath.row)
+            
+            saveExercises()
             
             exerciseLogTableView.beginUpdates()
             exerciseLogTableView.deleteRows(at: [indexPath], with: .automatic)
@@ -124,10 +228,7 @@ extension WorkoutViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        myIndex = indexPath.row
-        exerciseName = titleArray[myIndex]
         performSegue(withIdentifier: "setRepsSegue", sender: self)
-        
     }
     
 }
