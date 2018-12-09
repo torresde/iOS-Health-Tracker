@@ -7,3 +7,10 @@
 //
 
 import Foundation
+import XCTest
+@testable import Health_Tracker
+
+class CompletedWorkoutTesting: XCTest {
+    
+    
+}

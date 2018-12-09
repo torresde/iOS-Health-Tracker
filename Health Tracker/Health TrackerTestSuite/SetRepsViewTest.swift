@@ -7,3 +7,47 @@
 //
 
 import Foundation
+
+import XCTest
+@testable import Health_Tracker
+
+class SetRepsViewTest: XCTestCase {
+    
+    var sut: SetRepsViewController!
+    var window: UIWindow!
+    
+    override func setUp() {
+        super.setUp()
+        window = UIWindow()
+        setupWorkoutViewController()
+    }
+    
+    override func tearDown() {
+        window = nil
+        super.tearDown()
+    }
+    
+    func setupWorkoutViewController () {
+        let bundle = Bundle.main
+        let storyboard = UIStoryboard(name: "Main", bundle: bundle)
+        sut = (storyboard.instantiateViewController(withIdentifier: "setRepsView") as! SetRepsViewController)
+    }
+    
+    func loadView() {
+        window.addSubview(sut.view)
+        RunLoop.current.run(until: Date())
+    }
+    
+    class CheckSetRepsViewLoaded {
+        var setRepsViewLoaded = true
+    }
+    
+    func testSetNameViewLoaded() {
+        let isLoaded = CheckSetRepsViewLoaded()
+        
+        loadView()
+        
+        XCTAssertTrue(isLoaded.setRepsViewLoaded)
+        
+    }
+}
