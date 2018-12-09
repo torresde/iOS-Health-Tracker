@@ -23,8 +23,33 @@
 		6AF844EA21AFDB35004B2D5B /* CompletedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF844E921AFDB35004B2D5B /* CompletedViewController.swift */; };
 		6AF844ED21B044A7004B2D5B /* CompletedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF844EB21B044A7004B2D5B /* CompletedTableViewCell.swift */; };
 		6AF844EE21B044A7004B2D5B /* CompletedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6AF844EC21B044A7004B2D5B /* CompletedTableViewCell.xib */; };
+		B016A6CD21BD0C3B003184B3 /* Health_TrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B016A6CC21BD0C3B003184B3 /* Health_TrackerTests.swift */; };
+		B0198E5421BD166E008F0BF8 /* CompletedWorkoutsTesting.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0198E5321BD166E008F0BF8 /* CompletedWorkoutsTesting.swift */; };
+		B0198E5621BD1D79008F0BF8 /* WorkoutViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0198E5521BD1D79008F0BF8 /* WorkoutViewTests.swift */; };
+		B0198E5E21BDB3EF008F0BF8 /* Health_TrackerTestSuite.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0198E5D21BDB3EF008F0BF8 /* Health_TrackerTestSuite.swift */; };
+		B0198E6621BDB40E008F0BF8 /* WorkoutViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0198E6521BDB40E008F0BF8 /* WorkoutViewTest.swift */; };
+		B0198E6821BDC55A008F0BF8 /* CompletedViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0198E6721BDC55A008F0BF8 /* CompletedViewTest.swift */; };
+		B0198E6A21BDC6E9008F0BF8 /* SetNameViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0198E6921BDC6E9008F0BF8 /* SetNameViewTest.swift */; };
+		B0198E6C21BDC701008F0BF8 /* SetRepsViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0198E6B21BDC701008F0BF8 /* SetRepsViewTest.swift */; };
 		B06FAAE821AF522300009996 /* SetRepsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06FAAE721AF522300009996 /* SetRepsViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B016A6CF21BD0C3B003184B3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AF844902191159A004B2D5B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AF844972191159A004B2D5B;
+			remoteInfo = "Health Tracker";
+		};
+		B0198E6021BDB3EF008F0BF8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6AF844902191159A004B2D5B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6AF844972191159A004B2D5B;
+			remoteInfo = "Health Tracker";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		6AA3938421B11421009BA170 /* SetsLogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetsLogTableViewCell.swift; sourceTree = "<group>"; };
@@ -45,11 +70,37 @@
 		6AF844E921AFDB35004B2D5B /* CompletedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedViewController.swift; sourceTree = "<group>"; };
 		6AF844EB21B044A7004B2D5B /* CompletedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedTableViewCell.swift; sourceTree = "<group>"; };
 		6AF844EC21B044A7004B2D5B /* CompletedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompletedTableViewCell.xib; sourceTree = "<group>"; };
+		B016A6CA21BD0C3B003184B3 /* Health TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Health TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B016A6CC21BD0C3B003184B3 /* Health_TrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Health_TrackerTests.swift; sourceTree = "<group>"; };
+		B016A6CE21BD0C3B003184B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0198E5321BD166E008F0BF8 /* CompletedWorkoutsTesting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedWorkoutsTesting.swift; sourceTree = "<group>"; };
+		B0198E5521BD1D79008F0BF8 /* WorkoutViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewTests.swift; sourceTree = "<group>"; };
+		B0198E5B21BDB3EF008F0BF8 /* Health TrackerTestSuite.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Health TrackerTestSuite.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0198E5D21BDB3EF008F0BF8 /* Health_TrackerTestSuite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Health_TrackerTestSuite.swift; sourceTree = "<group>"; };
+		B0198E5F21BDB3EF008F0BF8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0198E6521BDB40E008F0BF8 /* WorkoutViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutViewTest.swift; sourceTree = "<group>"; };
+		B0198E6721BDC55A008F0BF8 /* CompletedViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedViewTest.swift; sourceTree = "<group>"; };
+		B0198E6921BDC6E9008F0BF8 /* SetNameViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNameViewTest.swift; sourceTree = "<group>"; };
+		B0198E6B21BDC701008F0BF8 /* SetRepsViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRepsViewTest.swift; sourceTree = "<group>"; };
 		B06FAAE721AF522300009996 /* SetRepsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetRepsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6AF844952191159A004B2D5B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B016A6C721BD0C3B003184B3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0198E5821BDB3EF008F0BF8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -64,6 +115,8 @@
 			children = (
 				6AF844AF21924EB9004B2D5B /* Default-568h@2x.png */,
 				6AF8449A2191159A004B2D5B /* Health Tracker */,
+				B016A6CB21BD0C3B003184B3 /* Health TrackerTests */,
+				B0198E5C21BDB3EF008F0BF8 /* Health TrackerTestSuite */,
 				6AF844992191159A004B2D5B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,6 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				6AF844982191159A004B2D5B /* Health Tracker.app */,
+				B016A6CA21BD0C3B003184B3 /* Health TrackerTests.xctest */,
+				B0198E5B21BDB3EF008F0BF8 /* Health TrackerTestSuite.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -132,6 +187,30 @@
 			path = "Custom Cells";
 			sourceTree = "<group>";
 		};
+		B016A6CB21BD0C3B003184B3 /* Health TrackerTests */ = {
+			isa = PBXGroup;
+			children = (
+				B016A6CC21BD0C3B003184B3 /* Health_TrackerTests.swift */,
+				B016A6CE21BD0C3B003184B3 /* Info.plist */,
+				B0198E5321BD166E008F0BF8 /* CompletedWorkoutsTesting.swift */,
+				B0198E5521BD1D79008F0BF8 /* WorkoutViewTests.swift */,
+			);
+			path = "Health TrackerTests";
+			sourceTree = "<group>";
+		};
+		B0198E5C21BDB3EF008F0BF8 /* Health TrackerTestSuite */ = {
+			isa = PBXGroup;
+			children = (
+				B0198E5D21BDB3EF008F0BF8 /* Health_TrackerTestSuite.swift */,
+				B0198E5F21BDB3EF008F0BF8 /* Info.plist */,
+				B0198E6521BDB40E008F0BF8 /* WorkoutViewTest.swift */,
+				B0198E6721BDC55A008F0BF8 /* CompletedViewTest.swift */,
+				B0198E6921BDC6E9008F0BF8 /* SetNameViewTest.swift */,
+				B0198E6B21BDC701008F0BF8 /* SetRepsViewTest.swift */,
+			);
+			path = "Health TrackerTestSuite";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,18 +231,62 @@
 			productReference = 6AF844982191159A004B2D5B /* Health Tracker.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B016A6C921BD0C3B003184B3 /* Health TrackerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B016A6D321BD0C3B003184B3 /* Build configuration list for PBXNativeTarget "Health TrackerTests" */;
+			buildPhases = (
+				B016A6C621BD0C3B003184B3 /* Sources */,
+				B016A6C721BD0C3B003184B3 /* Frameworks */,
+				B016A6C821BD0C3B003184B3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B016A6D021BD0C3B003184B3 /* PBXTargetDependency */,
+			);
+			name = "Health TrackerTests";
+			productName = "Health TrackerTests";
+			productReference = B016A6CA21BD0C3B003184B3 /* Health TrackerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B0198E5A21BDB3EF008F0BF8 /* Health TrackerTestSuite */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0198E6221BDB3EF008F0BF8 /* Build configuration list for PBXNativeTarget "Health TrackerTestSuite" */;
+			buildPhases = (
+				B0198E5721BDB3EF008F0BF8 /* Sources */,
+				B0198E5821BDB3EF008F0BF8 /* Frameworks */,
+				B0198E5921BDB3EF008F0BF8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0198E6121BDB3EF008F0BF8 /* PBXTargetDependency */,
+			);
+			name = "Health TrackerTestSuite";
+			productName = "Health TrackerTestSuite";
+			productReference = B0198E5B21BDB3EF008F0BF8 /* Health TrackerTestSuite.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		6AF844902191159A004B2D5B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0940;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = CS4278FinalProject;
 				TargetAttributes = {
 					6AF844972191159A004B2D5B = {
 						CreatedOnToolsVersion = 9.4.1;
+					};
+					B016A6C921BD0C3B003184B3 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 6AF844972191159A004B2D5B;
+					};
+					B0198E5A21BDB3EF008F0BF8 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 6AF844972191159A004B2D5B;
 					};
 				};
 			};
@@ -181,6 +304,8 @@
 			projectRoot = "";
 			targets = (
 				6AF844972191159A004B2D5B /* Health Tracker */,
+				B016A6C921BD0C3B003184B3 /* Health TrackerTests */,
+				B0198E5A21BDB3EF008F0BF8 /* Health TrackerTestSuite */,
 			);
 		};
 /* End PBXProject section */
@@ -197,6 +322,20 @@
 				6AA3938721B11421009BA170 /* SetsLogTableViewCell.xib in Resources */,
 				6AF844A12191159A004B2D5B /* Main.storyboard in Resources */,
 				6AF844BD21940548004B2D5B /* ExerciseLogTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B016A6C821BD0C3B003184B3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0198E5921BDB3EF008F0BF8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +359,42 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B016A6C621BD0C3B003184B3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0198E5621BD1D79008F0BF8 /* WorkoutViewTests.swift in Sources */,
+				B0198E5421BD166E008F0BF8 /* CompletedWorkoutsTesting.swift in Sources */,
+				B016A6CD21BD0C3B003184B3 /* Health_TrackerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0198E5721BDB3EF008F0BF8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0198E6A21BDC6E9008F0BF8 /* SetNameViewTest.swift in Sources */,
+				B0198E6C21BDC701008F0BF8 /* SetRepsViewTest.swift in Sources */,
+				B0198E6621BDB40E008F0BF8 /* WorkoutViewTest.swift in Sources */,
+				B0198E5E21BDB3EF008F0BF8 /* Health_TrackerTestSuite.swift in Sources */,
+				B0198E6821BDC55A008F0BF8 /* CompletedViewTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B016A6D021BD0C3B003184B3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6AF844972191159A004B2D5B /* Health Tracker */;
+			targetProxy = B016A6CF21BD0C3B003184B3 /* PBXContainerItemProxy */;
+		};
+		B0198E6121BDB3EF008F0BF8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6AF844972191159A004B2D5B /* Health Tracker */;
+			targetProxy = B0198E6021BDB3EF008F0BF8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6AF8449F2191159A004B2D5B /* Main.storyboard */ = {
@@ -392,6 +566,90 @@
 			};
 			name = Release;
 		};
+		B016A6D121BD0C3B003184B3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Health TrackerTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "self.edu.Health-TrackerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Health Tracker.app/Health Tracker";
+			};
+			name = Debug;
+		};
+		B016A6D221BD0C3B003184B3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Health TrackerTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "self.edu.Health-TrackerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Health Tracker.app/Health Tracker";
+			};
+			name = Release;
+		};
+		B0198E6321BDB3EF008F0BF8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Health TrackerTestSuite/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "self.edu.Health-TrackerTestSuite";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Health Tracker.app/Health Tracker";
+			};
+			name = Debug;
+		};
+		B0198E6421BDB3EF008F0BF8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Health TrackerTestSuite/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "self.edu.Health-TrackerTestSuite";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Health Tracker.app/Health Tracker";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -409,6 +667,24 @@
 			buildConfigurations = (
 				6AF844AB2191159C004B2D5B /* Debug */,
 				6AF844AC2191159C004B2D5B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B016A6D321BD0C3B003184B3 /* Build configuration list for PBXNativeTarget "Health TrackerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B016A6D121BD0C3B003184B3 /* Debug */,
+				B016A6D221BD0C3B003184B3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0198E6221BDB3EF008F0BF8 /* Build configuration list for PBXNativeTarget "Health TrackerTestSuite" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0198E6321BDB3EF008F0BF8 /* Debug */,
+				B0198E6421BDB3EF008F0BF8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
