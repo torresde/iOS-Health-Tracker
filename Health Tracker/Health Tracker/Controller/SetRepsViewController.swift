@@ -17,6 +17,7 @@ class SetRepsViewController: UIViewController {
     @IBOutlet weak var weightInputTextField: UITextField!
     @IBOutlet weak var addSetButton: UIButton!
     
+    
     var setsArray = [Set]()
     var prevSetsArray = [Set]()
     var exerciseDelegate: resetTableData?
@@ -30,6 +31,9 @@ class SetRepsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        repsInputTextField.keyboardType = UIKeyboardType.numberPad
+        weightInputTextField.keyboardType = UIKeyboardType.numberPad
         
         exerciseName.text = selectedExercise?.exerciseName
         
@@ -97,6 +101,10 @@ class SetRepsViewController: UIViewController {
     }
     
     @IBAction func addSetButtonPressed(_ sender: Any) {
+        repsInputTextField.text = String(repsInputTextField.text!)
+        weightInputTextField.text = String(weightInputTextField.text!)
+        
+        
         insertNewCell()
     }
     
